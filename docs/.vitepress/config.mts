@@ -62,7 +62,7 @@ export default defineConfig({
         collapsed: false,
         items: [
           { text: '아파트 매매계약서 쓰기', link: '/howto/contract-apartment' },
-          { text: '확인설명서 만들기', link: '/howto/confirmation-form' }
+          { text: '확인설명서 작성하기', link: '/howto/confirmation-form' }
         ]
       },
       {
@@ -120,9 +120,8 @@ export default defineConfig({
     sidebarMenuLabel: '목차',
 
     // 각 문서 하단에 "이 문서 고쳐주세요" 링크가 붙습니다.
-    // ★ 아래 YOUR-ID 를 대표님 GitHub 아이디로 바꾸세요.
     editLink: {
-      pattern: 'https://github.com/YOUR-ID/bdseasy-guide/edit/main/docs/:path',
+      pattern: 'https://github.com/budongsaneasy-arch/bdseasy-guide/edit/main/docs/:path',
       text: '이 문서에서 틀린 점 알려주기'
     },
 

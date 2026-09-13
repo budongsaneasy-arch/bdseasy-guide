@@ -17,8 +17,8 @@ features:
   - title: 계약서 쓰기
     details: 매매·전세·월세 / 아파트·다세대·상가·토지
     link: /howto/contract-apartment
-  - title: 확인설명서 만들기
-    details: 계약서와 자동으로 이어 쓰기
+  - title: 확인설명서 작성하기
+    details: 계약서와 함께 병기해서 작성
     link: /howto/confirmation-form
   - title: 공적장부 한 번에 떼기
     details: 부동산 원장 → 공적장부 · 등기변동
