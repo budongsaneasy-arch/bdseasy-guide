@@ -8,7 +8,9 @@
 ## 폴더 구조
 
 ```
-bdseasy-guide/
+부동산이지 가이드 리뉴얼/     ← 이 폴더가 저장소의 최상위입니다
+├── CLAUDE.md                 ← 작업 규칙 (Claude가 읽습니다)
+├── GUIDE-PLAN.md             ← 어떤 문서를 어떤 순서로 만들지
 ├── docs/
 │   ├── index.md              ← 첫 화면
 │   ├── start/                ← 시작하기 (1~2개만)
@@ -26,9 +28,11 @@ bdseasy-guide/
 
 ## 문서를 추가하는 법
 
-1. 알맞은 폴더(`howto/` 등)에 `.md` 파일을 새로 만듭니다.
-2. `docs/howto/contract-apartment.md`를 복사해서 틀을 그대로 쓰세요.
-3. `docs/.vitepress/config.mts`의 `sidebar`에 한 줄 추가합니다.
+1. **`GUIDE-PLAN.md`에서 만들 문서를 하나 고릅니다.** (교재 몇 쪽이 근거인지 적혀 있습니다)
+2. 알맞은 폴더(`howto/` 등)에 `.md` 파일을 새로 만듭니다.
+3. `docs/howto/contract-apartment.md`를 복사해서 틀을 그대로 쓰세요.
+4. `docs/.vitepress/config.mts`의 `sidebar`에 한 줄 추가합니다.
+5. `GUIDE-PLAN.md`의 상태를 바꿉니다.
 
 **헷갈리면 Claude에게 "이 저장소에 ○○ 문서 추가해줘"라고 말씀하시면 됩니다.**
 

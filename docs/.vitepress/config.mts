@@ -38,7 +38,7 @@ export default defineConfig({
 
     nav: [
       { text: '시작하기', link: '/start/first-contract' },
-      { text: '업무별 방법', link: '/howto/contract-apartment' },
+      { text: '업무별 방법', link: '/howto/public-records' },
       { text: '화면 설명', link: '/reference/' },
       { text: '배경 개념', link: '/concept/naver-cp' },
       { text: '부동산이지 열기 ↗', link: 'https://bdseasy.com/' }
@@ -61,6 +61,9 @@ export default defineConfig({
         text: '업무별 방법',
         collapsed: false,
         items: [
+          { text: '공적장부 한 번에 떼기', link: '/howto/public-records' },
+          { text: '매물 접수하기', link: '/howto/property-register' },
+          { text: '가계약 문자 보내기', link: '/howto/pre-contract-sms' },
           { text: '아파트 매매계약서 쓰기', link: '/howto/contract-apartment' },
           { text: '확인설명서 작성하기', link: '/howto/confirmation-form' }
         ]
