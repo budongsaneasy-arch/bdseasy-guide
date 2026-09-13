@@ -26,9 +26,6 @@ features:
   - title: 아파트 매매계약서 쓰기
     details: 매매·전세·월세 / 분양권·입주권·권리금까지 9종
     link: /howto/contract-apartment
-  - title: 확인설명서 작성하기
-    details: 계약서와 함께 병기해서 작성
-    link: /howto/confirmation-form
   - title: 네이버 광고 구조 이해하기
     details: 렛츠를 거쳐 나가는 이유와 순위가 밀리는 이유
     link: /concept/naver-cp

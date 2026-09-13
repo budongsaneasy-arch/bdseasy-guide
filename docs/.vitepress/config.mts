@@ -27,6 +27,11 @@ export default defineConfig({
   cleanUrls: true,
   ignoreDeadLinks: true,
 
+  // 확인설명서 문서는 아직 검증 전 초안입니다.
+  // 대표님과 함께 다시 쓴 뒤 아래 한 줄을 지우면 다시 사이트에 나옵니다.
+  // (사이드바 항목도 함께 되살려 주세요)
+  srcExclude: ['**/confirmation-form.md'],
+
   head: [
     ['meta', { name: 'theme-color', content: '#C4402E' }],
     ['meta', { property: 'og:title', content: '부동산이지 사용 가이드' }],
@@ -64,8 +69,7 @@ export default defineConfig({
           { text: '공적장부 한 번에 떼기', link: '/howto/public-records' },
           { text: '매물 접수하기', link: '/howto/property-register' },
           { text: '가계약 문자 보내기', link: '/howto/pre-contract-sms' },
-          { text: '아파트 매매계약서 쓰기', link: '/howto/contract-apartment' },
-          { text: '확인설명서 작성하기', link: '/howto/confirmation-form' }
+          { text: '아파트 매매계약서 쓰기', link: '/howto/contract-apartment' }
         ]
       },
       {
