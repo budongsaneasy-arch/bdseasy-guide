@@ -21,16 +21,16 @@ features:
     details: 계약서와 자동으로 이어 쓰기
     link: /howto/confirmation-form
   - title: 공적장부 한 번에 떼기
-    details: 등기부·건축물대장·토지이용계획
+    details: 부동산 원장 → 공적장부 · 등기변동
     link: /reference/
   - title: 네이버에 매물 올리기
-    details: CP(Lets) 연동 · 노출 순위 관리
+    details: 매물 → N 광고 관리 · N 매물 모니터링
     link: /concept/naver-cp
   - title: 매물·고객 관리하기
-    details: 일정 · 거래 진행상황 · 재방문 고객
+    details: 매물 접수 · 의뢰 접수 · 일정 관리
     link: /reference/
-  - title: AI 기능 쓰기
-    details: 특약 작성 · 권리분석 · 광고 문구
+  - title: 만기일 챙기기
+    details: 부동산 원장 → 만기일 관리
     link: /reference/
 ---
 
