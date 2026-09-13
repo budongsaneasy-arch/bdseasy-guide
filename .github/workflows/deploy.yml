@@ -1,0 +1,63 @@
+# ─────────────────────────────────────────────────────────────
+#  이 파일은 "저장하면 사이트가 저절로 다시 만들어지게" 하는 설정입니다.
+#  대표님이 문서를 고쳐 저장(커밋)하면, 1~2분 뒤 사이트에 반영됩니다.
+#
+#  ★ 대표님이 손대실 곳은 없습니다. 그냥 두세요.
+#  ★ GitHub 저장소 Settings → Pages → Source 를 "GitHub Actions" 로
+#    한 번만 바꿔주시면 동작합니다.
+# ─────────────────────────────────────────────────────────────
+name: 가이드 사이트 배포
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 저장소 내려받기
+        uses: actions/checkout@v4
+        with:
+          # 문서마다 "최종 수정일"을 자동으로 붙이려면 전체 이력이 필요합니다.
+          fetch-depth: 0
+
+      - name: Node 준비
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: 패키지 설치
+        run: npm install
+
+      - name: 사이트 만들기
+        run: npm run build
+
+      - name: Pages 설정
+        uses: actions/configure-pages@v5
+
+      - name: 결과물 업로드
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs/.vitepress/dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: 공개하기
+        id: deployment
+        uses: actions/deploy-pages@v4

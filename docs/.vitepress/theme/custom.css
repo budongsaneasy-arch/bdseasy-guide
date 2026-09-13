@@ -1,0 +1,39 @@
+/* ─────────────────────────────────────────────────────────────
+   사이트 색상. 여기 색깔 코드만 바꾸시면 사이트 전체가 따라 바뀝니다.
+   부동산이지 브랜드 색이 따로 있으면 아래 값을 그걸로 바꾸세요.
+   ───────────────────────────────────────────────────────────── */
+
+:root {
+  --vp-c-brand-1: #B03A29;
+  --vp-c-brand-2: #C4402E;
+  --vp-c-brand-3: #D4543F;
+  --vp-c-brand-soft: rgba(196, 64, 46, 0.14);
+
+  --vp-home-hero-name-color: #B03A29;
+
+  --vp-font-family-base: 'Pretendard', -apple-system, BlinkMacSystemFont,
+    'Malgun Gothic', '맑은 고딕', 'Apple SD Gothic Neo', sans-serif;
+}
+
+.dark {
+  --vp-c-brand-1: #E5654E;
+  --vp-c-brand-2: #D4543F;
+  --vp-c-brand-3: #C4402E;
+  --vp-c-brand-soft: rgba(229, 101, 78, 0.16);
+
+  --vp-home-hero-name-color: #E5654E;
+}
+
+/* 본문 줄 간격을 한국어에 맞게 조금 넓힙니다 */
+.vp-doc p,
+.vp-doc li {
+  line-height: 1.8;
+}
+
+/* 문서 맨 위의 "걸리는 시간 · 준비물" 상자 */
+.vp-doc > div > blockquote:first-of-type {
+  border-left-color: var(--vp-c-brand-1);
+  background: var(--vp-c-bg-soft);
+  padding: 14px 18px;
+  border-radius: 3px;
+}
