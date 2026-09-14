@@ -107,7 +107,7 @@
 
 ## 8. 신고기한 확인하기
 
-<!-- ![계약 관리 D-30](/images/pre-contract-sms-08.png) -->
+![계약 관리 D-30](/images/pre-contract-sms-08.png)
 
 상단 메뉴 **계약 → 계약 관리**에서 전체를 봅니다.
 
