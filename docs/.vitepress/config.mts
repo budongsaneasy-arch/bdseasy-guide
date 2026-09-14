@@ -45,7 +45,7 @@ export default defineConfig({
       { text: '시작하기', link: '/start/first-contract' },
       { text: '업무별 방법', link: '/howto/public-records' },
       { text: '화면 설명', link: '/reference/' },
-      { text: '배경 개념', link: '/concept/naver-cp' },
+      { text: '배경 개념', link: '/concept/why-records-first' },
       { text: '부동산이지 열기 ↗', link: 'https://bdseasy.com/' }
     ],
 
@@ -83,6 +83,8 @@ export default defineConfig({
         text: '배경 개념',
         collapsed: false,
         items: [
+          { text: '왜 대장이 먼저인가', link: '/concept/why-records-first' },
+          { text: '고객을 왜 한 곳에 모으나', link: '/concept/why-one-customer' },
           { text: '네이버 부동산 CP 연동이란', link: '/concept/naver-cp' }
         ]
       }
