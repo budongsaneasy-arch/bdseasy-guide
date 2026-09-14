@@ -22,7 +22,7 @@
 ## 1. 매물에서 계약서 작성 시작하기
 
 <!-- 스크린샷: docs/public/images/pre-contract-sms-01.png 로 저장하고 아래 주석을 푸세요 -->
-<!-- ![계약서 작성 시작](/images/pre-contract-sms-01.png) -->
+![계약서 작성 시작](/images/pre-contract-sms-01.png)
 
 상단 메뉴 **매물 → 매물 관리**에서 해당 매물을 열고 **계약서 작성**을 누릅니다.
 
@@ -41,7 +41,7 @@
 
 ## 3. 가계약 관리 열기
 
-<!-- ![가계약 관리](/images/pre-contract-sms-03.png) -->
+![가계약 관리](/images/pre-contract-sms-03.png)
 
 상단의 **가계약 관리**를 누르면 문자 편집 창이 뜹니다.
 
@@ -61,7 +61,7 @@
 
 ## 4. 매도인·임대인용 문자 만들기
 
-<!-- ![매도인용 문자](/images/pre-contract-sms-04.png) -->
+![매도인용 문자](/images/pre-contract-sms-04.png)
 
 발송대상을 **매도인용**으로 고르고 **매도/임대인용 양식 생성**을 누릅니다.
 
@@ -89,7 +89,7 @@
 
 ## 6. 문자 보내기
 
-<!-- ![문자 발송](/images/pre-contract-sms-06.png) -->
+![문자 발송](/images/pre-contract-sms-06.png)
 
 아래쪽 가계약 양식에 매도인용·매수인용 두 칸이 각각 만들어집니다.
 칸마다 **저장 · 클립보드에 복사 · 문자 발송** 이 있습니다.
