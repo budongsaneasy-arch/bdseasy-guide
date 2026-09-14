@@ -65,7 +65,7 @@
 
 ## 2. 본계약으로 바꾸기
 
-<!-- ![본계약 토글](/images/contract-apartment-02.png) -->
+![본계약 토글](/images/contract-apartment-02.png)
 
 계약서 화면은 **[가계약]** 이 먼저 선택된 상태로 열립니다.
 본계약을 쓰실 거라면 **[본계약]** 으로 바꿔 주세요.
@@ -82,7 +82,7 @@
 
 ## 3. 부동산 표시 확인하기
 
-<!-- ![부동산 표시](/images/contract-apartment-03.png) -->
+![부동산 표시](/images/contract-apartment-03.png)
 
 소재지·지목·면적·대지권종류·대지권비율·구조·용도가 대장에서 자동으로 들어옵니다.
 거래면적은 계산되어 표시됩니다.
@@ -94,7 +94,7 @@
 
 ## 4. 거래금액과 지급일정 입력하기
 
-<!-- ![금액 입력](/images/contract-apartment-04.png) -->
+![금액 입력](/images/contract-apartment-04.png)
 
 매매대금을 넣고 계약금·중도금·잔금과 각 지급일을 입력합니다.
 **만단위 적용**을 체크하면 만원 단위로 넣을 수 있고, 한글 표기가 자동으로 붙습니다.
@@ -111,7 +111,7 @@
 
 ## 5. 특약사항 넣기
 
-<!-- ![특약 입력](/images/contract-apartment-05.png) -->
+![특약 입력](/images/contract-apartment-05.png)
 
 특약사항 칸 왼쪽에 버튼이 두 개 있습니다.
 
@@ -137,7 +137,7 @@
 
 ## 6. 매도인·매수인 입력하기
 
-<!-- ![당사자 입력](/images/contract-apartment-06.png) -->
+![당사자 입력](/images/contract-apartment-06.png)
 
 각 당사자마다 넣는 방법이 세 가지입니다.
 
