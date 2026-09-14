@@ -49,7 +49,7 @@
 ## 1. 계약 유형 고르기
 
 <!-- 스크린샷: docs/public/images/contract-apartment-01.png 로 저장하고 아래 주석을 푸세요 -->
-<!-- ![계약 유형 선택](/images/contract-apartment-01.png) -->
+![계약 유형 선택](/images/contract-apartment-01.png)
 
 거래 유형에서 **매매/권리금**을 고르고, 계약서 유형에서 **부동산 매매 계약서**를 고른 뒤 **다음**을 누릅니다.
 

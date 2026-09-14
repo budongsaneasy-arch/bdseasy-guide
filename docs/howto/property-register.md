@@ -33,7 +33,7 @@
 ## 1. 매물 접수 화면 열기
 
 <!-- 스크린샷: docs/public/images/property-register-01.png 로 저장하고 아래 주석을 푸세요 -->
-<!-- ![매물 접수 화면 열기](/images/property-register-01.png) -->
+![매물 접수 화면 열기](/images/property-register-01.png)
 
 상단 메뉴에서 **매물 → 매물 접수**를 누릅니다.
 
