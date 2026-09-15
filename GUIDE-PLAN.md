@@ -54,7 +54,7 @@
 | --- | --- | --- | --- |
 | 네이버에 매물 광고하기 | `naver-ad.md` | P1-134~162 (XI장) | 작성됨 (렛츠 화면 대기) |
 | 광고 순위 확인하고 올리기 | `naver-rank.md` | P1-160~162 | 예정 |
-| 임대차 만기일 관리하기 | `lease-expiry.md` | P2-16~27 (XVI장) | 예정 |
+| 임대차 만기일 관리하기 | `lease-expiry.md` | P2-16~27 (XVI장) | 작성됨 |
 | 네이버 매물 보고 바로 접수하기 | `n-monitoring.md` | P1-168~180 (XIII장) | 예정 |
 | 매물 브리핑 인쇄하기 | `property-briefing.md` | P1-163~167 (XII장) | 예정 |
 
@@ -88,7 +88,7 @@
 | 네이버 부동산 CP 연동이란 | `naver-cp.md` | P1-136~139, P1-152 | 작성됨 |
 | 왜 대장이 먼저인가 | `why-records-first.md` | P1-28, P1-87, P1-43 + 대표님 설명 | 작성됨 |
 | 고객을 왜 한 곳에 모으나 | `why-one-customer.md` | P1-17~26 + 대표님 설명 | 작성됨 |
-| 만기 관리가 다음 계약을 만든다 | `why-expiry.md` | P2-18 (아마추어/프로/선수) | 예정 |
+| 만기 관리가 다음 계약을 만든다 | `why-expiry.md` | P2-18 | howto/lease-expiry 앞부분에 흡수 |
 | AI는 어디에 들어 있나 | `where-is-ai.md` | P1-124~133 (X장) | 예정 |
 
 ### 화면 설명 (`docs/reference/`) — 맨 나중
