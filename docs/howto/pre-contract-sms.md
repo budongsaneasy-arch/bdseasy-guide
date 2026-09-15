@@ -32,7 +32,7 @@
 
 ## 2. 계약 내용 채우기
 
-<!-- ![계약 내용 입력](/images/pre-contract-sms-02.png) -->
+![계약 내용 입력](/images/pre-contract-sms-02.png)
 
 거래금액과 계약금·중도금·잔금, 그리고 매도인·매수인을 넣습니다.
 
@@ -99,7 +99,7 @@
 
 ## 7. 저장하고 날짜 관리 시작하기
 
-<!-- ![가계약일 저장](/images/pre-contract-sms-07.png) -->
+![가계약일 저장](/images/pre-contract-sms-07.png)
 
 **저장**을 누르면 가계약일이 기록되고 신고 기한 관리가 시작됩니다.
 

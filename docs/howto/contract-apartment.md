@@ -162,7 +162,7 @@
 
 ## 7. 확인하고 출력하기
 
-<!-- ![출력](/images/contract-apartment-07.png) -->
+![출력](/images/contract-apartment-07.png)
 
 **미리보기 및 인쇄**로 전체를 한 번 확인한 뒤 출력합니다.
 PDF로 저장하시려면 인쇄 대화상자에서 대상을 **PDF로 저장**으로 바꾸시면 됩니다.

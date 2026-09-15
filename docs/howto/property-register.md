@@ -42,7 +42,7 @@
 
 ## 2. 기초 정보 입력하기
 
-<!-- ![기초 정보 입력](/images/property-register-02.png) -->
+![기초 정보 입력](/images/property-register-02.png)
 
 주소를 불러오면 구조·주용도·면적·지목·대지권종류·대지권비율이 자동으로 채워집니다.
 비어 있으면 **다시 불러오기**나 **공적장부**를 눌러 보세요.
@@ -71,7 +71,7 @@
 
 ## 4. 사진 등록하기
 
-<!-- ![사진 등록](/images/property-register-04.png) -->
+![사진 등록](/images/property-register-04.png)
 
 사진에는 카테고리가 있습니다.
 
@@ -89,7 +89,7 @@
 
 ## 5. 추가 서류 챙기기
 
-<!-- ![추가 서류](/images/property-register-05.png) -->
+![추가 서류](/images/property-register-05.png)
 
 원장 상세의 **매물접수(첨부파일)** 탭에서 등기권리증·등기사항증명서·토지대장 같은 서류를 붙여 둘 수 있습니다.
 
