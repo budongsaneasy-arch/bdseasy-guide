@@ -55,8 +55,8 @@
 | 네이버에 매물 광고하기 | `naver-ad.md` | P1-134~162 (XI장) | 작성됨 (렛츠 화면 대기) |
 | 광고 순위 확인하고 올리기 | `naver-rank.md` | P1-160~162 | 예정 |
 | 임대차 만기일 관리하기 | `lease-expiry.md` | P2-16~27 (XVI장) | 작성됨 |
-| 네이버 매물 보고 바로 접수하기 | `n-monitoring.md` | P1-168~180 (XIII장) | 예정 |
-| 매물 브리핑 인쇄하기 | `property-briefing.md` | P1-163~167 (XII장) | 예정 |
+| 네이버 매물 보고 바로 접수하기 | `n-monitoring.md` | P1-168~180 (XIII장) | 작성됨 |
+| 매물 브리핑 인쇄하기 | `property-briefing.md` | P1-163~167 (XII장) | 작성됨 |
 
 **3순위. 계약서 종류별**
 
