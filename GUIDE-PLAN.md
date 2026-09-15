@@ -53,7 +53,7 @@
 | 문서 | 파일 | 교재 근거 | 상태 |
 | --- | --- | --- | --- |
 | 네이버에 매물 광고하기 | `naver-ad.md` | P1-134~162 (XI장) | 작성됨 (렛츠 화면 대기) |
-| 광고 순위 확인하고 올리기 | `naver-rank.md` | P1-160~162 | 예정 |
+| 광고 순위 확인하고 올리기 | `naver-rank.md` | P1-160~162 | howto/naver-ad 8단계에 흡수 |
 | 임대차 만기일 관리하기 | `lease-expiry.md` | P2-16~27 (XVI장) | 작성됨 |
 | 네이버 매물 보고 바로 접수하기 | `n-monitoring.md` | P1-168~180 (XIII장) | 작성됨 |
 | 매물 브리핑 인쇄하기 | `property-briefing.md` | P1-163~167 (XII장) | 작성됨 |
@@ -62,24 +62,24 @@
 
 | 문서 | 파일 | 교재 근거 | 상태 |
 | --- | --- | --- | --- |
-| 전세·월세 계약서 쓰기 | `contract-lease.md` | P2-91~97 | 예정 |
-| 분양권 매매계약서 쓰기 | `contract-presale.md` | P2-71~74 | 예정 |
-| 입주권 매매계약서 쓰기 | `contract-redevelopment.md` | P2-75~86 | 예정 |
-| 권리금 계약서 쓰기 | `contract-premium.md` | P2-87~90 | 예정 |
-| 계약서 공유해서 공동중개하기 | `contract-share.md` | P2-102~107 (XXIII장) | 예정 |
-| 계약 단계별 안내문자 보내기 | `contract-sms.md` | P2-98~101 (XXII장) | 예정 |
+| 전세·월세 계약서 쓰기 | `contract-lease.md` | P2-91~97 | 작성됨 |
+| 분양권 매매계약서 쓰기 | `contract-presale.md` | P2-71~74 | 작성됨 |
+| 입주권 매매계약서 쓰기 | `contract-redevelopment.md` | P2-75~86 | 작성됨 |
+| 권리금 계약서 쓰기 | `contract-premium.md` | P2-87~90 | 작성됨 |
+| 계약서 공유해서 공동중개하기 | `contract-share.md` | P2-102~107 (XXIII장) | 작성됨 |
+| 계약 단계별 안내문자 보내기 | `contract-sms.md` | P2-98~101 (XXII장) | 작성됨 |
 
 **4순위. 사무소 운영**
 
 | 문서 | 파일 | 교재 근거 | 상태 |
 | --- | --- | --- | --- |
-| 고객 등록하고 관리하기 | `customer.md` | P1-17~26 (III장) | 예정 |
-| 고객 한 번에 불러오기 | `customer-import.md` | P1-24~26 | 예정 |
-| 일정 관리하기 | `calendar.md` | P2-28~38 (XVII장) | 예정 |
-| 직원 등록하고 배분비율 정하기 | `staff.md` | P2-132~142 (XXVII·XXVIII장) | 예정 |
-| 매출 관리하기 | `sales.md` | P2-141 | 예정 |
-| 다가구·상가 호실별로 관리하기 | `partial-lease.md` | P2-110~125 (XXV장) | 예정 |
-| 등기 열람 포인트 충전하기 | `points.md` | P1-112~123 (IX장) | 예정 |
+| 고객 등록하고 관리하기 | `customer.md` | P1-17~26 (III장) | 작성됨 |
+| 고객 한 번에 불러오기 | `customer-import.md` | P1-24~26 | 작성됨 |
+| 일정 관리하기 | `calendar.md` | P2-28~38 (XVII장) | 작성됨 |
+| 직원 등록하고 배분비율 정하기 | `staff.md` | P2-132~142 (XXVII·XXVIII장) | 작성됨 |
+| 매출 관리하기 | `sales.md` | P2-141 | 작성됨 |
+| 다가구·상가 호실별로 관리하기 | `partial-lease.md` | P2-110~125 (XXV장) | 작성됨 |
+| 등기 열람 포인트 충전하기 | `points.md` | P1-112~123 (IX장) | 작성됨 |
 
 ### 배경 개념 (`docs/concept/`)
 

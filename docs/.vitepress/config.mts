@@ -68,12 +68,25 @@ export default defineConfig({
         items: [
           { text: '공적장부 한 번에 떼기', link: '/howto/public-records' },
           { text: '매물 접수하기', link: '/howto/property-register' },
-          { text: '가계약 문자 보내기', link: '/howto/pre-contract-sms' },
           { text: '네이버 매물 보고 바로 접수하기', link: '/howto/n-monitoring' },
           { text: '네이버에 매물 광고하기', link: '/howto/naver-ad' },
+          { text: '매물 브리핑 인쇄하기', link: '/howto/property-briefing' },
+          { text: '가계약 문자 보내기', link: '/howto/pre-contract-sms' },
           { text: '아파트 매매계약서 쓰기', link: '/howto/contract-apartment' },
+          { text: '전세·월세 계약서 쓰기', link: '/howto/contract-lease' },
+          { text: '분양권 매매계약서 쓰기', link: '/howto/contract-presale' },
+          { text: '입주권 매매계약서 쓰기', link: '/howto/contract-redevelopment' },
+          { text: '권리금 계약서 쓰기', link: '/howto/contract-premium' },
+          { text: '계약 단계별 안내문자 보내기', link: '/howto/contract-sms' },
+          { text: '계약서 공유해서 공동중개하기', link: '/howto/contract-share' },
           { text: '임대차 만기일 관리하기', link: '/howto/lease-expiry' },
-          { text: '매물 브리핑 인쇄하기', link: '/howto/property-briefing' }
+          { text: '다가구·상가 호실별로 관리하기', link: '/howto/partial-lease' },
+          { text: '고객 등록하고 관리하기', link: '/howto/customer' },
+          { text: '고객 한 번에 불러오기', link: '/howto/customer-import' },
+          { text: '일정 관리하기', link: '/howto/calendar' },
+          { text: '직원 등록하고 배분비율 정하기', link: '/howto/staff' },
+          { text: '매출 관리하기', link: '/howto/sales' },
+          { text: '등기 열람 포인트 충전하기', link: '/howto/points' }
         ]
       },
       {
