@@ -135,5 +135,6 @@
 
 ## 관련 문서
 
+- [네이버에 매물 광고하기](/howto/naver-ad) — 실제로 광고를 올리는 법
 - [매물 접수하기](/howto/property-register) — 광고로 나갈 정보가 여기서 만들어집니다
 - [공적장부 한 번에 떼기](/howto/public-records) — 등기부 자동첨부의 전제

@@ -69,6 +69,7 @@ export default defineConfig({
           { text: '공적장부 한 번에 떼기', link: '/howto/public-records' },
           { text: '매물 접수하기', link: '/howto/property-register' },
           { text: '가계약 문자 보내기', link: '/howto/pre-contract-sms' },
+          { text: '네이버에 매물 광고하기', link: '/howto/naver-ad' },
           { text: '아파트 매매계약서 쓰기', link: '/howto/contract-apartment' }
         ]
       },
