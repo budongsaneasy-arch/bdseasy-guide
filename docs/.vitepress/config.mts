@@ -33,9 +33,23 @@ export default defineConfig({
   srcExclude: ['**/confirmation-form.md'],
 
   head: [
-    ['meta', { name: 'theme-color', content: '#C4402E' }],
+    ['meta', { name: 'theme-color', content: '#14459E' }],
     ['meta', { property: 'og:title', content: '부동산이지 사용 가이드' }],
-    ['meta', { property: 'og:locale', content: 'ko_KR' }]
+    ['meta', { property: 'og:locale', content: 'ko_KR' }],
+
+    // ── 글꼴 ──────────────────────────────────────────────
+    //  본문은 Pretendard(한글 화면용), 제목·경로는 IBM Plex.
+    //  아래 세 줄을 지우면 글꼴이 시스템 기본으로 돌아갑니다.
+    ['link', { rel: 'preconnect', href: 'https://fonts.googleapis.com' }],
+    ['link', { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' }],
+    ['link', {
+      rel: 'stylesheet',
+      href: 'https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css'
+    }],
+    ['link', {
+      rel: 'stylesheet',
+      href: 'https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap'
+    }]
   ],
 
   themeConfig: {

@@ -1,39 +1,838 @@
+/* ═════════════════════════════════════════════════════════════
+   부동산이지 사용 가이드 — 디자인 시스템
+
+   설계 방향
+     이 제품의 세계는 대장·등기부·지적도입니다.
+     그래서 "치수가 적힌 도면"의 감각으로 만들었습니다.
+     카드와 둥근 모서리 대신 헤어라인 괘선, 정확한 숫자 정렬.
+
+   대표님이 손대실 곳은 아래 [1] 색상 토큰 한 군데뿐입니다.
+   나머지는 그 색을 받아서 알아서 따라갑니다.
+   ═════════════════════════════════════════════════════════════ */
+
+
 /* ─────────────────────────────────────────────────────────────
-   사이트 색상. 여기 색깔 코드만 바꾸시면 사이트 전체가 따라 바뀝니다.
-   부동산이지 브랜드 색이 따로 있으면 아래 값을 그걸로 바꾸세요.
+   [1] 색상 토큰  ← 여기만 바꾸시면 사이트 전체가 따라 바뀝니다
    ───────────────────────────────────────────────────────────── */
 
 :root {
-  --vp-c-brand-1: #B03A29;
-  --vp-c-brand-2: #C4402E;
-  --vp-c-brand-3: #D4543F;
-  --vp-c-brand-soft: rgba(196, 64, 46, 0.14);
+  /* 바탕과 글자 — 중성색에 푸른 기를 아주 조금 넣었습니다.
+     완전한 회색은 "고르지 않은 색"으로 보입니다. */
+  --ez-ground:      #F6F8FA;   /* 페이지 바탕 */
+  --ez-surface:     #FFFFFF;   /* 본문 카드 바탕 */
+  --ez-surface-sub: #EFF2F6;   /* 한 단계 눌린 바탕 */
+  --ez-ink:         #101319;   /* 제목 */
+  --ez-ink-body:    #2C3440;   /* 본문 */
+  --ez-ink-mid:     #566070;   /* 보조 설명 */
+  --ez-ink-mute:    #838D9C;   /* 캡션·라벨 */
+  --ez-rule:        #E2E7EE;   /* 헤어라인 괘선 */
+  --ez-rule-strong: #CBD3DE;   /* 강조 괘선 */
 
-  --vp-home-hero-name-color: #B03A29;
+  /* 브랜드 — 부동산이지 로고의 파랑에서 가져왔습니다 */
+  --ez-brand:       #14459E;
+  --ez-brand-hi:    #1B5AC9;   /* 밝은 쪽 (링크 hover) */
+  --ez-brand-deep:  #0E3277;   /* 깊은 쪽 (눌림) */
+  --ez-brand-wash:  #EDF2FC;   /* 아주 옅은 배경 */
+  --ez-brand-line:  #BDCEEC;   /* 옅은 테두리 */
 
-  --vp-font-family-base: 'Pretendard', -apple-system, BlinkMacSystemFont,
-    'Malgun Gothic', '맑은 고딕', 'Apple SD Gothic Neo', sans-serif;
+  /* 로고의 초록 — 무료·완료·좋은 소식 */
+  --ez-go:          #0E8F4C;
+  --ez-go-wash:     #E7F5EE;
+  --ez-go-line:     #B4DDC6;
+
+  /* 주의 — 과태료·분쟁으로 이어질 수 있는 것 */
+  --ez-warn:        #9A6208;
+  --ez-warn-wash:   #FBF3E4;
+  --ez-warn-line:   #E8D3A8;
+
+  /* 위험 — 하면 안 되는 것 */
+  --ez-stop:        #B02633;
+  --ez-stop-wash:   #FCEEEF;
+  --ez-stop-line:   #EDC3C7;
+
+  --ez-shadow-sm: 0 1px 2px rgba(16, 19, 25, .05);
+  --ez-shadow:    0 1px 2px rgba(16, 19, 25, .05),
+                  0 10px 28px -20px rgba(16, 19, 25, .40);
 }
 
 .dark {
-  --vp-c-brand-1: #E5654E;
-  --vp-c-brand-2: #D4543F;
-  --vp-c-brand-3: #C4402E;
-  --vp-c-brand-soft: rgba(229, 101, 78, 0.16);
+  --ez-ground:      #0D1014;
+  --ez-surface:     #14181E;
+  --ez-surface-sub: #1B212A;
+  --ez-ink:         #F2F5F8;
+  --ez-ink-body:    #D3DAE3;
+  --ez-ink-mid:     #A6B0BE;
+  --ez-ink-mute:    #79838F;
+  --ez-rule:        #252C36;
+  --ez-rule-strong: #38414D;
 
-  --vp-home-hero-name-color: #E5654E;
+  --ez-brand:       #7BA5F5;
+  --ez-brand-hi:    #9BBCFF;
+  --ez-brand-deep:  #5C88DE;
+  --ez-brand-wash:  #16203A;
+  --ez-brand-line:  #2A3A5E;
+
+  --ez-go:          #4FC98A;
+  --ez-go-wash:     #10241A;
+  --ez-go-line:     #1F4534;
+
+  --ez-warn:        #E0AE5C;
+  --ez-warn-wash:   #241C10;
+  --ez-warn-line:   #46381F;
+
+  --ez-stop:        #F08A93;
+  --ez-stop-wash:   #2A1418;
+  --ez-stop-line:   #4C262C;
+
+  --ez-shadow-sm: 0 1px 2px rgba(0, 0, 0, .4);
+  --ez-shadow:    0 1px 2px rgba(0, 0, 0, .4),
+                  0 10px 28px -20px rgba(0, 0, 0, .9);
 }
 
-/* 본문 줄 간격을 한국어에 맞게 조금 넓힙니다 */
+
+/* ─────────────────────────────────────────────────────────────
+   [2] VitePress 기본 변수에 위 토큰을 연결합니다
+   ───────────────────────────────────────────────────────────── */
+
+:root {
+  --vp-c-brand-1: var(--ez-brand);
+  --vp-c-brand-2: var(--ez-brand-hi);
+  --vp-c-brand-3: var(--ez-brand-deep);
+  --vp-c-brand-soft: var(--ez-brand-wash);
+
+  --vp-c-bg:       var(--ez-surface);
+  --vp-c-bg-alt:   var(--ez-ground);
+  --vp-c-bg-soft:  var(--ez-surface-sub);
+  --vp-c-bg-elv:   var(--ez-surface);
+
+  --vp-c-text-1: var(--ez-ink);
+  --vp-c-text-2: var(--ez-ink-mid);
+  --vp-c-text-3: var(--ez-ink-mute);
+
+  --vp-c-divider:      var(--ez-rule);
+  --vp-c-border:       var(--ez-rule);
+  --vp-c-gutter:       var(--ez-rule);
+
+  --vp-c-tip-1: var(--ez-brand);
+  --vp-c-tip-soft: var(--ez-brand-wash);
+  --vp-c-warning-1: var(--ez-warn);
+  --vp-c-warning-soft: var(--ez-warn-wash);
+  --vp-c-danger-1: var(--ez-stop);
+  --vp-c-danger-soft: var(--ez-stop-wash);
+
+  --vp-home-hero-name-color: var(--ez-ink);
+
+  /* 글꼴 — 본문 Pretendard, 제목·경로 IBM Plex */
+  --vp-font-family-base: 'Pretendard Variable', Pretendard,
+    -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
+    'Malgun Gothic', '맑은 고딕', system-ui, sans-serif;
+  --vp-font-family-mono: 'IBM Plex Mono', 'Pretendard Variable', Pretendard,
+    ui-monospace, 'SFMono-Regular', Menlo, monospace;
+
+  --ez-font-display: 'IBM Plex Sans KR', 'Pretendard Variable', Pretendard,
+    -apple-system, 'Malgun Gothic', sans-serif;
+
+  --vp-layout-max-width: 1480px;
+  --vp-nav-height: 62px;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* body 에만 걸면 뷰포트로 전파되어 효과가 없습니다. html 에도 함께 겁니다. */
+  overflow-x: clip;
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}
+
+body {
+  background: var(--ez-ground);
+  color: var(--ez-ink-body);
+  /* 상단바에 숨어 있는 팝오버 메뉴가 중간 화면폭(약 800px)에서
+     가로 스크롤을 만드는 VitePress 기본 동작을 막습니다.
+     hidden 이 아니라 clip 이어야 상단바 고정이 그대로 동작합니다. */
+  overflow-x: clip;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  /* 면적·금액·층이 세로로 맞도록. 이 업무에서는 숫자 정렬이 중요합니다. */
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum' 1;
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   [3] 상단 바 — 얇게, 조용하게
+   ───────────────────────────────────────────────────────────── */
+
+.VPNavBar {
+  border-bottom: 1px solid var(--ez-rule) !important;
+  background: color-mix(in srgb, var(--ez-surface) 82%, transparent) !important;
+  backdrop-filter: saturate(180%) blur(14px);
+}
+.VPNavBar.has-sidebar .content-body,
+.VPNavBar .divider { background: transparent !important; }
+
+.VPNavBarTitle .title {
+  font-family: var(--ez-font-display);
+  font-weight: 600;
+  font-size: 15.5px;
+  letter-spacing: -.018em;
+  color: var(--ez-ink);
+  border-bottom: none !important;
+}
+/* 제목 앞에 작은 각인 — 도면의 기준점 */
+.VPNavBarTitle .title::before {
+  content: "";
+  display: inline-block;
+  width: 7px; height: 7px;
+  margin-right: 9px;
+  vertical-align: 1px;
+  background: var(--ez-brand);
+}
+
+.VPNavBarMenuLink {
+  font-size: 13.8px !important;
+  font-weight: 500 !important;
+  letter-spacing: -.01em;
+  color: var(--ez-ink-mid) !important;
+}
+.VPNavBarMenuLink:hover,
+.VPNavBarMenuLink.active { color: var(--ez-brand) !important; }
+
+
+/* ─────────────────────────────────────────────────────────────
+   [4] 사이드바 — 목록이 아니라 "차례"처럼
+   ───────────────────────────────────────────────────────────── */
+
+.VPSidebar {
+  background: var(--ez-ground) !important;
+  border-right: 1px solid var(--ez-rule);
+  padding-top: 26px !important;
+}
+
+.VPSidebarItem.level-0 > .item > .text {
+  font-family: var(--ez-font-display);
+  font-size: 11.5px !important;
+  font-weight: 600 !important;
+  letter-spacing: .085em;
+  text-transform: uppercase;
+  color: var(--ez-ink-mute) !important;
+}
+.VPSidebarItem.level-0 { padding-bottom: 14px !important; }
+.VPSidebarItem.level-0:not(:first-child) {
+  border-top: 1px solid var(--ez-rule);
+  padding-top: 18px !important;
+  margin-top: 4px;
+}
+
+.VPSidebarItem.level-1 .link .text,
+.VPSidebarItem.level-2 .link .text {
+  font-size: 13.9px !important;
+  line-height: 1.55;
+  color: var(--ez-ink-mid) !important;
+  transition: color .12s ease;
+}
+.VPSidebarItem .link { padding: 1px 0; }
+.VPSidebarItem.level-1 .link:hover .text { color: var(--ez-ink) !important; }
+
+/* 지금 보고 있는 문서 — 왼쪽에 굵은 표시 */
+.VPSidebarItem.is-active > .item .link .text {
+  color: var(--ez-brand) !important;
+  font-weight: 600 !important;
+}
+.VPSidebarItem.level-1.is-active > .item,
+.VPSidebarItem.level-2.is-active > .item {
+  position: relative;
+}
+.VPSidebarItem.level-1.is-active > .item::before,
+.VPSidebarItem.level-2.is-active > .item::before {
+  content: "";
+  position: absolute;
+  left: -14px; top: 50%;
+  width: 3px; height: 14px;
+  margin-top: -7px;
+  background: var(--ez-brand);
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   [5] 본문 활자 — 한국어 문서 읽기에 맞춘 치수
+   ───────────────────────────────────────────────────────────── */
+
+.VPDoc { padding-top: 34px !important; }
+
+.vp-doc {
+  font-size: 16.2px;
+  line-height: 1.82;
+  letter-spacing: -.004em;
+}
+/* 본문은 또렷하게. VitePress 기본값은 이 사이트 독자에게 너무 연합니다. */
+.vp-doc,
 .vp-doc p,
-.vp-doc li {
-  line-height: 1.8;
+.vp-doc li,
+.vp-doc td,
+.vp-doc dd { color: var(--ez-ink-body); }
+.vp-doc p, .vp-doc li { line-height: 1.82; }
+.vp-doc p { margin: 17px 0; }
+
+/* 문서 제목 */
+.vp-doc h1 {
+  font-family: var(--ez-font-display);
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 1.32;
+  letter-spacing: -.032em;
+  color: var(--ez-ink);
+  margin-bottom: 8px;
+  text-wrap: balance;
 }
 
-/* 문서 맨 위의 "걸리는 시간 · 준비물" 상자 */
+/* 단계 제목 — 위에 괘선을 긋고 왼쪽 여백에 기준점을 찍습니다.
+   문서 대부분이 "1. / 2. / 3." 순서이므로 이 구조가 내용과 맞습니다. */
+.vp-doc h2 {
+  position: relative;
+  font-family: var(--ez-font-display);
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.42;
+  letter-spacing: -.024em;
+  color: var(--ez-ink);
+  border-top: 1px solid var(--ez-rule);
+  margin-top: 62px;
+  padding-top: 26px;
+  text-wrap: balance;
+}
+/* 번호 없는 제목("왜 필요한가" 등)은 짧은 강조선만 */
+.vp-doc h2:not([data-ez-step])::before {
+  content: "";
+  position: absolute;
+  top: -1px; left: 0;
+  width: 42px; height: 2px;
+  background: var(--ez-brand);
+}
+
+/* 번호 있는 제목 — 숫자를 도면의 측점처럼 왼쪽에 세웁니다.
+   숫자는 theme/index.js 가 마크다운의 "## 1. ~" 에서 자동으로 떼어냅니다. */
+.vp-doc h2[data-ez-step] { padding-left: 46px; }
+.vp-doc h2[data-ez-step]::before {
+  content: "";
+  position: absolute;
+  top: -1px; left: 0;
+  width: 32px; height: 2px;
+  background: var(--ez-brand);
+}
+.ez-step {
+  position: absolute;
+  left: 0; top: 24px;
+  width: 32px; height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--ez-font-display);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 1;
+  color: #fff;
+  background: var(--ez-brand);
+  border-radius: 2px;
+}
+.dark .ez-step { color: #0D1014; }
+
+.vp-doc h3 {
+  font-family: var(--ez-font-display);
+  font-size: 17.5px;
+  font-weight: 600;
+  letter-spacing: -.018em;
+  color: var(--ez-ink);
+  margin-top: 38px;
+}
+
+.vp-doc strong { font-weight: 600; color: var(--ez-ink); }
+
+.vp-doc a {
+  color: var(--ez-brand);
+  font-weight: 500;
+  text-decoration: none;
+  border-bottom: 1px solid var(--ez-brand-line);
+  transition: border-color .12s ease, color .12s ease;
+}
+.vp-doc a:hover {
+  color: var(--ez-brand-hi);
+  border-bottom-color: var(--ez-brand);
+}
+
+.vp-doc ul, .vp-doc ol { padding-left: 1.15em; }
+.vp-doc li { margin: 7px 0; }
+.vp-doc li::marker { color: var(--ez-ink-mute); }
+
+.vp-doc hr {
+  border: 0;
+  border-top: 1px solid var(--ez-rule);
+  margin: 46px 0;
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   [6] 문서 머리의 "걸리는 시간 · 미리 준비할 것"
+       사이트에서 가장 자주 반복되는 요소라 따로 설계했습니다.
+   ───────────────────────────────────────────────────────────── */
+
 .vp-doc > div > blockquote:first-of-type {
-  border-left-color: var(--vp-c-brand-1);
-  background: var(--vp-c-bg-soft);
-  padding: 14px 18px;
-  border-radius: 3px;
+  position: relative;
+  background: var(--ez-surface-sub);
+  border: 1px solid var(--ez-rule);
+  border-left: 2px solid var(--ez-brand);
+  border-radius: 0;
+  padding: 17px 20px 16px;
+  margin: 26px 0 40px;
+  font-size: 14.6px;
+  line-height: 1.7;
+  color: var(--ez-ink-mid);
+}
+.vp-doc > div > blockquote:first-of-type::before {
+  content: "이 문서";
+  display: block;
+  font-family: var(--ez-font-display);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: .1em;
+  color: var(--ez-ink-mute);
+  margin-bottom: 7px;
+}
+.vp-doc > div > blockquote:first-of-type p { margin: 0; }
+.vp-doc > div > blockquote:first-of-type strong { color: var(--ez-ink); }
+
+/* 본문 중간의 인용 — 제품 화면 문구를 그대로 옮길 때 씁니다 */
+.vp-doc blockquote {
+  border-left: 2px solid var(--ez-rule-strong);
+  background: transparent;
+  padding: 2px 0 2px 18px;
+  margin: 20px 0;
+  color: var(--ez-ink-mid);
+  font-size: 15.2px;
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   [7] 안내 상자 — 둥근 사탕 상자 대신 납작한 띠
+   ───────────────────────────────────────────────────────────── */
+
+.vp-doc .custom-block {
+  position: relative;
+  border-radius: 0;
+  border: 1px solid var(--ez-rule);
+  border-left-width: 2px;
+  padding: 16px 20px 15px;
+  margin: 26px 0;
+  font-size: 15.1px;
+  line-height: 1.75;
+}
+.vp-doc .custom-block p { margin: 9px 0; }
+.vp-doc .custom-block p:first-of-type { margin-top: 0; }
+.vp-doc .custom-block p:last-child { margin-bottom: 0; }
+.vp-doc .custom-block .custom-block-title {
+  font-family: var(--ez-font-display);
+  font-size: 13.4px;
+  font-weight: 600;
+  letter-spacing: -.012em;
+  margin-bottom: 9px;
+  display: block;
+}
+/* 상자 종류를 글자로도 알려줍니다 — 색만으로 구분하면 못 보는 분이 계십니다 */
+.vp-doc .custom-block .custom-block-title::before {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .09em;
+  padding: 2px 6px;
+  margin-right: 9px;
+  vertical-align: 2px;
+  border: 1px solid currentColor;
+}
+
+.vp-doc .custom-block.tip {
+  background: var(--ez-brand-wash);
+  border-color: var(--ez-brand-line);
+  border-left-color: var(--ez-brand);
+}
+.vp-doc .custom-block.tip .custom-block-title { color: var(--ez-brand); }
+.vp-doc .custom-block.tip .custom-block-title::before { content: "도움말"; }
+
+.vp-doc .custom-block.warning {
+  background: var(--ez-warn-wash);
+  border-color: var(--ez-warn-line);
+  border-left-color: var(--ez-warn);
+}
+.vp-doc .custom-block.warning .custom-block-title { color: var(--ez-warn); }
+.vp-doc .custom-block.warning .custom-block-title::before { content: "주의"; }
+
+.vp-doc .custom-block.danger {
+  background: var(--ez-stop-wash);
+  border-color: var(--ez-stop-line);
+  border-left-color: var(--ez-stop);
+}
+.vp-doc .custom-block.danger .custom-block-title { color: var(--ez-stop); }
+.vp-doc .custom-block.danger .custom-block-title::before { content: "반드시"; }
+
+.vp-doc .custom-block.info {
+  background: var(--ez-surface-sub);
+  border-left-color: var(--ez-rule-strong);
+}
+
+/* "여기서 막히셨다면" 접이식 — 눌러야 하는 것처럼 보이게 */
+.vp-doc .custom-block.details {
+  background: var(--ez-surface);
+  border-color: var(--ez-rule);
+  border-left-color: var(--ez-rule-strong);
+  padding: 0;
+}
+.vp-doc .custom-block.details > summary {
+  font-family: var(--ez-font-display);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ez-ink);
+  padding: 14px 20px;
+  margin: 0;
+  cursor: pointer;
+  list-style: none;
+  transition: background .12s ease;
+}
+.vp-doc .custom-block.details > summary:hover { background: var(--ez-surface-sub); }
+.vp-doc .custom-block.details > summary::-webkit-details-marker { display: none; }
+.vp-doc .custom-block.details > summary::before {
+  content: "＋";
+  display: inline-block;
+  width: 17px;
+  color: var(--ez-brand);
+  font-weight: 500;
+}
+.vp-doc .custom-block.details[open] > summary::before { content: "－"; }
+.vp-doc .custom-block.details[open] > summary {
+  border-bottom: 1px solid var(--ez-rule);
+}
+.vp-doc .custom-block.details > *:not(summary) { padding: 0 20px; }
+.vp-doc .custom-block.details > *:not(summary):first-of-type { padding-top: 15px; }
+.vp-doc .custom-block.details > *:not(summary):last-child { padding-bottom: 16px; }
+
+
+/* ─────────────────────────────────────────────────────────────
+   [8] 표 — 세로줄을 없애고 가로 헤어라인만. 숫자는 세로로 맞춥니다.
+   ───────────────────────────────────────────────────────────── */
+
+.vp-doc table {
+  display: table;
+  width: 100%;
+  border-collapse: collapse;
+  margin: 26px 0;
+  font-size: 14.9px;
+  border: 0;
+}
+.vp-doc tr { border: 0; background: transparent !important; }
+.vp-doc th {
+  font-family: var(--ez-font-display);
+  font-size: 12.4px;
+  font-weight: 600;
+  letter-spacing: .01em;
+  text-align: left;
+  color: var(--ez-ink-mute);
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--ez-rule-strong);
+  padding: 9px 14px 9px 0;
+}
+.vp-doc td {
+  border: 0;
+  border-bottom: 1px solid var(--ez-rule);
+  padding: 12px 14px 12px 0;
+  color: var(--ez-ink-body);
+  vertical-align: top;
+  line-height: 1.66;
+}
+.vp-doc td:last-child, .vp-doc th:last-child { padding-right: 0; }
+.vp-doc tbody tr:last-child td { border-bottom: 1px solid var(--ez-rule-strong); }
+.vp-doc td strong { color: var(--ez-ink); }
+
+/* 표가 넓으면 표만 옆으로 밀립니다. 페이지 전체가 밀리면 안 됩니다. */
+.vp-doc .table-wrapper { overflow-x: auto; }
+
+
+/* ─────────────────────────────────────────────────────────────
+   [9] 스크린샷 — 도면의 도판처럼
+   ───────────────────────────────────────────────────────────── */
+
+.vp-doc img {
+  display: block;
+  width: 100%;
+  border: 1px solid var(--ez-rule-strong);
+  border-radius: 2px;
+  background: var(--ez-surface);
+  box-shadow: var(--ez-shadow);
+  margin: 26px 0;
+}
+
+/* 이미지 바로 다음 줄이 설명이면 캡션처럼 보이게 */
+.vp-doc p > img { margin-bottom: 10px; }
+
+
+/* ─────────────────────────────────────────────────────────────
+   [10] 코드·경로 — 메뉴 경로 표기에 많이 쓰입니다
+   ───────────────────────────────────────────────────────────── */
+
+.vp-doc :not(pre) > code {
+  font-family: var(--vp-font-family-mono);
+  font-size: 13.4px;
+  font-weight: 500;
+  color: var(--ez-ink);
+  background: var(--ez-surface-sub);
+  border: 1px solid var(--ez-rule);
+  border-radius: 2px;
+  padding: 2px 6px;
+}
+.vp-doc a code { color: var(--ez-brand); }
+
+.vp-doc div[class*='language-'] {
+  border-radius: 2px;
+  border: 1px solid var(--ez-rule);
+  background: var(--ez-surface-sub);
+  margin: 24px 0;
+}
+.vp-doc div[class*='language-'] pre { padding: 18px 20px; }
+.vp-doc div[class*='language-'] code { font-size: 13.2px; line-height: 1.7; }
+
+
+/* ─────────────────────────────────────────────────────────────
+   [11] 첫 화면 — 가운데 정렬 커다란 그라데이션 대신 왼쪽 정렬 편집형
+   ───────────────────────────────────────────────────────────── */
+
+.VPHome { padding-bottom: 72px; }
+
+/* 위쪽 여백은 고정 상단바(62px)보다 넉넉해야 라벨이 가리지 않습니다 */
+.VPHero { padding-top: 96px !important; padding-bottom: 20px !important; }
+.VPHero .container { flex-direction: column; text-align: left; }
+.VPHero .main { order: 2; max-width: 780px; }
+.VPHero .image { display: none; }
+
+/* 머리 위 작은 라벨 — ★ 문구를 바꾸시려면 아래 따옴표 안을 고치세요 */
+.VPHero .container::before {
+  content: "공인중개사를 위한 실무 매뉴얼";
+  display: block;
+  font-family: var(--ez-font-display);
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: .12em;
+  color: var(--ez-brand);
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--ez-rule);
+  max-width: 780px;
+}
+
+.VPHero .name {
+  font-family: var(--ez-font-display);
+  font-size: 52px !important;
+  font-weight: 700 !important;
+  line-height: 1.16 !important;
+  letter-spacing: -.04em;
+  color: var(--ez-ink) !important;
+  background: none !important;
+  -webkit-text-fill-color: currentColor !important;
+  max-width: none;
+}
+.VPHero .text {
+  font-family: var(--ez-font-display);
+  font-size: 52px !important;
+  font-weight: 700 !important;
+  line-height: 1.16 !important;
+  letter-spacing: -.04em;
+  color: var(--ez-ink-mute) !important;
+  max-width: none;
+}
+.VPHero .tagline {
+  font-size: 17.5px !important;
+  line-height: 1.72;
+  color: var(--ez-ink-mid) !important;
+  max-width: 47ch;
+  margin-top: 20px !important;
+  padding-top: 0;
+}
+.VPHero .actions { justify-content: flex-start; margin-top: 30px !important; }
+
+.VPButton {
+  border-radius: 2px !important;
+  font-family: var(--ez-font-display);
+  font-weight: 600 !important;
+  font-size: 14.2px !important;
+  letter-spacing: -.012em;
+  padding: 0 22px !important;
+  line-height: 42px !important;
+  border: 1px solid transparent !important;
+  transition: background .14s ease, border-color .14s ease, color .14s ease;
+}
+.VPButton.brand {
+  background: var(--ez-brand) !important;
+  color: #fff !important;
+}
+.VPButton.brand:hover { background: var(--ez-brand-deep) !important; }
+.dark .VPButton.brand { color: #0D1014 !important; }
+.VPButton.alt {
+  background: transparent !important;
+  color: var(--ez-ink) !important;
+  border-color: var(--ez-rule-strong) !important;
+}
+.VPButton.alt:hover {
+  border-color: var(--ez-brand) !important;
+  color: var(--ez-brand) !important;
+}
+
+/* 바로가기 묶음 — 떠 있는 카드가 아니라 맞물린 격자 */
+.VPFeatures { padding-top: 34px !important; }
+.VPFeatures .container { max-width: var(--vp-layout-max-width); }
+.VPFeatures .items { margin: 0 !important; }
+.VPFeatures .item { padding: 0 !important; }
+
+.VPFeature {
+  border: 1px solid var(--ez-rule) !important;
+  border-radius: 0 !important;
+  background: var(--ez-surface) !important;
+  padding: 24px 24px 22px !important;
+  margin: -1px 0 0 -1px;   /* 테두리를 겹쳐 하나의 격자로 */
+  transition: background .14s ease, border-color .14s ease;
+  position: relative;
+}
+.VPFeature:hover {
+  background: var(--ez-brand-wash) !important;
+  border-color: var(--ez-brand-line) !important;
+  z-index: 1;
+}
+.VPFeature .title {
+  font-family: var(--ez-font-display);
+  font-size: 16.4px !important;
+  font-weight: 600 !important;
+  letter-spacing: -.02em;
+  line-height: 1.45;
+  color: var(--ez-ink) !important;
+}
+.VPFeature .details {
+  font-size: 14.2px !important;
+  line-height: 1.68;
+  color: var(--ez-ink-mid) !important;
+  margin-top: 8px !important;
+}
+.VPFeature .link-text { display: none; }
+/* 오른쪽 위 화살표 — hover 때만 */
+.VPFeature::after {
+  content: "→";
+  position: absolute;
+  top: 22px; right: 22px;
+  font-size: 15px;
+  color: var(--ez-brand);
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: opacity .14s ease, transform .14s ease;
+}
+.VPFeature:hover::after { opacity: 1; transform: translateX(0); }
+
+/* 첫 화면 본문(features 아래 마크다운) */
+.VPHome .vp-doc { max-width: 780px; margin: 0 auto; padding: 0 24px; }
+@media (min-width: 960px) {
+  .VPHome .vp-doc { padding: 0 48px; }
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   [12] 문서 아래 이동 링크 · 오른쪽 목차 · 최종 수정일
+   ───────────────────────────────────────────────────────────── */
+
+.VPDocFooter { margin-top: 56px !important; border-top: 1px solid var(--ez-rule); padding-top: 22px; }
+.pager-link {
+  border: 1px solid var(--ez-rule) !important;
+  border-radius: 0 !important;
+  background: var(--ez-surface) !important;
+  padding: 14px 18px !important;
+  transition: border-color .14s ease, background .14s ease;
+}
+.pager-link:hover { border-color: var(--ez-brand) !important; background: var(--ez-brand-wash) !important; }
+.pager-link .desc {
+  font-family: var(--ez-font-display);
+  font-size: 10.6px !important;
+  font-weight: 600;
+  letter-spacing: .1em;
+  color: var(--ez-ink-mute) !important;
+}
+.pager-link .title {
+  font-family: var(--ez-font-display);
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  letter-spacing: -.018em;
+  color: var(--ez-ink) !important;
+  margin-top: 3px;
+}
+
+.VPDocAsideOutline .outline-title {
+  font-family: var(--ez-font-display);
+  font-size: 10.8px !important;
+  font-weight: 600 !important;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--ez-ink-mute) !important;
+}
+.VPDocAsideOutline .outline-link {
+  font-size: 13.2px !important;
+  line-height: 1.6;
+  color: var(--ez-ink-mid) !important;
+  padding: 5px 0 !important;
+}
+.VPDocAsideOutline .outline-link:hover,
+.VPDocAsideOutline .outline-link.active { color: var(--ez-brand) !important; }
+.VPDocAside .outline-marker { background: var(--ez-brand) !important; width: 2px !important; }
+
+.VPLastUpdated, .VPDocFooterLastUpdated {
+  font-size: 12.8px !important;
+  color: var(--ez-ink-mute) !important;
+}
+
+/* 검색 버튼 */
+.DocSearch-Button {
+  border-radius: 2px !important;
+  border: 1px solid var(--ez-rule) !important;
+  background: var(--ez-surface-sub) !important;
+}
+.DocSearch-Button:hover { border-color: var(--ez-brand-line) !important; box-shadow: none !important; }
+
+
+/* ─────────────────────────────────────────────────────────────
+   [13] 좁은 화면 — 사무실 PC가 기본이지만 현장에서 휴대폰으로도 봅니다
+   ───────────────────────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  .vp-doc { font-size: 15.8px; }
+  .vp-doc h1 { font-size: 27px; }
+  .vp-doc h2 { font-size: 19.5px; margin-top: 46px; padding-top: 22px; }
+  .vp-doc h3 { font-size: 16.4px; }
+
+  .VPHero { padding-top: 88px !important; }
+  .VPHero .name, .VPHero .text { font-size: 34px !important; }
+  .VPHero .tagline { font-size: 16px !important; }
+  .VPHero .actions { flex-direction: column; align-items: stretch; }
+  .VPHero .actions .action { width: 100%; }
+  .VPButton { width: 100%; }
+
+  /* 세로로 쌓일 때는 칸 높이를 내용에 맞춥니다 */
+  .VPFeature {
+    margin: -1px 0 0 0;
+    height: auto !important;
+    padding: 20px 20px 19px !important;
+  }
+  .vp-doc table { font-size: 14.2px; }
+}
+
+/* 인쇄 — 중개사무소에서 출력해 두고 보는 경우가 있습니다 */
+@media print {
+  .VPNavBar, .VPSidebar, .VPDocAside, .VPDocFooter, .VPLocalNav { display: none !important; }
+  .VPDoc { padding: 0 !important; }
+  .vp-doc { font-size: 11pt; }
+  .vp-doc img { box-shadow: none; break-inside: avoid; }
+  .vp-doc h2 { break-after: avoid; }
+  .vp-doc .custom-block.details { break-inside: avoid; }
 }
