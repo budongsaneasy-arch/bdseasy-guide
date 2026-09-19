@@ -93,6 +93,7 @@ export default defineConfig({
           { text: '계약서 공유해서 공동중개하기', link: '/howto/contract-share' },
           { text: '임대차 만기일 관리하기', link: '/howto/lease-expiry' },
           { text: '다가구·상가 호실별로 관리하기', link: '/howto/partial-lease' },
+          { text: '고객 의뢰 접수하고 관리하기', link: '/howto/request' },
           { text: '고객 등록하고 관리하기', link: '/howto/customer' },
           { text: '고객 한 번에 불러오기', link: '/howto/customer-import' },
           { text: '일정 관리하기', link: '/howto/calendar' },
