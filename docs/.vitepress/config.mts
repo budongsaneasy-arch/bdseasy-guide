@@ -80,6 +80,7 @@ export default defineConfig({
           { text: '신축 단지 원장 신청하기 (임시원장)', link: '/howto/temp-ledger' },
           { text: '네이버 매물 보고 바로 접수하기', link: '/howto/n-monitoring' },
           { text: '네이버에 매물 광고하기', link: '/howto/naver-ad' },
+          { text: '이지허브에 매물 올리고 의뢰 받기', link: '/howto/ez-hub' },
           { text: '매물 브리핑 인쇄하기', link: '/howto/property-briefing' },
           { text: '가계약 문자 보내기', link: '/howto/pre-contract-sms' },
           { text: '아파트 매매계약서 쓰기', link: '/howto/contract-apartment' },
