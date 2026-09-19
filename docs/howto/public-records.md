@@ -100,7 +100,7 @@
 
 ## 5. 한 번에 인쇄하기
 
-<!-- ![일괄 출력](/images/public-records-05.png) -->
+![일괄 출력](/images/public-records-05.png)
 
 **일괄 출력**을 누르면 신청한 서류가 한 번에 인쇄됩니다.
 
