@@ -72,5 +72,6 @@ npm run build    # 실제 배포와 같은 결과물 만들기
 
 `docs/.vitepress/config.mts` 안에 있습니다.
 
-1. **`base`** — GitHub Pages 기본 주소면 `'/bdseasy-guide/'` 그대로, 도메인을 연결했으면 `'/'`
+1. **`base`** — **2026.09 `guide.bdseasy.com` 을 연결해 `'/'` 로 두었습니다.** 그대로 두시면 됩니다.
+   (도메인 이름은 `docs/public/CNAME` 에 있습니다)
 2. **`editLink.pattern`** — `YOUR-ID`를 본인 GitHub 아이디로

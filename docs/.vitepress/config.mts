@@ -4,8 +4,10 @@ import { defineConfig } from 'vitepress'
 //  ★ 대표님이 손대실 곳은 딱 두 군데입니다 ★
 //
 //  1) base
-//     - GitHub Pages 기본 주소로 쓰실 때  →  '/bdseasy-guide/'  (지금 상태)
-//     - guide.bdseasy.com 처럼 도메인을 연결하신 뒤  →  '/'  로 바꾸세요
+//     - ★ 2026.09 guide.bdseasy.com 도메인을 연결해서 '/' 로 바꿨습니다. 그대로 두세요.
+//     - 도메인을 떼고 GitHub Pages 기본 주소로 돌아가실 때만  →  '/bdseasy-guide/'
+//     - 도메인 이름은 docs/public/CNAME 에 있습니다. 이 파일이 있어야 배포할 때
+//       도메인이 풀리지 않습니다 (빌드 결과에 같이 들어갑니다)
 //
 //  2) sidebar
 //     - 문서를 새로 추가하면 아래 sidebar 목록에 한 줄 넣으면 끝입니다

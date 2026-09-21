@@ -336,7 +336,8 @@ AI 챗봇 버튼에는 **BETA** 표시가 붙어 있습니다. 문서에서 이 
 
 `docs/.vitepress/config.mts`
 
-- `base` — GitHub Pages 기본 주소면 `'/bdseasy-guide/'`, 도메인 연결 후엔 `'/'`
+- `base` — **2026.09 `guide.bdseasy.com` 연결 완료. 지금은 `'/'` 입니다. 되돌리지 마세요.**
+  도메인 이름은 `docs/public/CNAME` 에 있고, 빌드 결과에 함께 들어가야 배포 때 도메인이 풀리지 않습니다
 - `editLink.pattern` — `YOUR-ID`를 실제 GitHub 아이디로
 
 ## 문의처 (문서 안에서 안내할 때)
