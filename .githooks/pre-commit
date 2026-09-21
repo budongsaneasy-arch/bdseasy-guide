@@ -1,0 +1,39 @@
+#!/bin/sh
+# 커밋에 담기는 "내용"을 검사합니다. 커밋 메시지는 commit-msg 훅이 봅니다.
+set -u
+HOOKDIR="$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)"
+STATUS=0
+TMP="$(mktemp)"
+trap 'rm -f "$TMP"' EXIT
+
+# 스테이징된 파일을 이름이 아니라 "스테이징된 내용"으로 검사합니다
+git diff --cached --name-only --diff-filter=ACMR -z | while IFS= read -r -d '' f; do
+  git show ":$f" > "$TMP" 2>/dev/null || continue
+  sh "$HOOKDIR/scan.sh" "$TMP" "$f" || echo x >> "$TMP.flag"
+done
+
+if [ -f "$TMP.flag" ]; then rm -f "$TMP.flag"; STATUS=1; fi
+
+if [ "$STATUS" -ne 0 ]; then
+  cat <<'MSG'
+
+  ───────────────────────────────────────────────────────────
+  커밋을 멈췄습니다. 위 내용이 공개 저장소에 올라갑니다.
+
+  이 저장소와 guide.bdseasy.com 은 누구나 봅니다.
+  한 번 푸시하면 커밋을 지워도 해시로 접근되고 포크·캐시에 남습니다.
+
+  할 일
+    1. 실제 정보면 → 가상 데이터나 ○○ 표기로 바꾸세요
+    2. 예시·공개정보라 괜찮으면 → .githooks/allow.txt 에 그 문자열을 추가
+    3. 판단이 어려우면 → 커밋하지 마시고 작업자에게 확인하세요
+
+  규칙 전문: CLAUDE.md 「이 저장소는 공개입니다 — 커밋 전에 반드시」
+
+  정말 의도한 것이라면 git commit --no-verify 로 넘길 수 있습니다.
+  다만 그건 "알고 올린다"는 뜻입니다.
+  ───────────────────────────────────────────────────────────
+
+MSG
+fi
+exit $STATUS

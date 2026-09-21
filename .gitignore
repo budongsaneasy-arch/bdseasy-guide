@@ -4,3 +4,6 @@ docs/.vitepress/cache
 .DS_Store
 Thumbs.db
 .claude/
+
+# 실제 단지명·계정이 들어간 로컬 전용 금지어 목록 (저장소에 올리지 않습니다)
+.githooks/deny.local.txt
