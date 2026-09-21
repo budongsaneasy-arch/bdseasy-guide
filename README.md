@@ -22,7 +22,7 @@
 │       ├── config.mts        ← 메뉴·사이드바 설정
 │       └── theme/custom.css  ← 색상 설정
 ├── .github/workflows/
-│   └── deploy.yml            ← 저장하면 사이트가 자동으로 다시 만들어짐
+│   └── deploy.yml            ← "배포해줘"라고 했을 때만 사이트를 다시 만듦
 └── package.json
 ```
 
