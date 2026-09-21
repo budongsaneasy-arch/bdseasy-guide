@@ -12,7 +12,7 @@ import { defineConfig } from 'vitepress'
 //     - 헷갈리면 Claude에게 "이 문서 사이드바에 추가해줘" 하고 말씀하세요
 // ─────────────────────────────────────────────────────────────
 
-const base = '/bdseasy-guide/'
+const base = '/'
 
 export default defineConfig({
   base,
