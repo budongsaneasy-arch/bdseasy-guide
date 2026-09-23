@@ -161,8 +161,11 @@ export default defineConfig({
     sidebarMenuLabel: '목차',
 
     // 각 문서 하단에 "이 문서 고쳐주세요" 링크가 붙습니다.
+    // 문서 하단의 "틀린 점 알려주기" 링크입니다.
+    // 읽는 분은 개업공인중개사이지 개발자가 아니라, GitHub 편집 화면이 아니라
+    // 부동산이지 고객센터의 문의하기로 보냅니다.
     editLink: {
-      pattern: 'https://github.com/budongsaneasy-arch/bdseasy-guide/edit/main/docs/:path',
+      pattern: 'https://bdseasy.com/board',
       text: '이 문서에서 틀린 점 알려주기'
     },
 

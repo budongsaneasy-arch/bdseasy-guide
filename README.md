@@ -74,4 +74,5 @@ npm run build    # 실제 배포와 같은 결과물 만들기
 
 1. **`base`** — **2026.09 `guide.bdseasy.com` 을 연결해 `'/'` 로 두었습니다.** 그대로 두시면 됩니다.
    (도메인 이름은 `docs/public/CNAME` 에 있습니다)
-2. **`editLink.pattern`** — `YOUR-ID`를 본인 GitHub 아이디로
+2. **`editLink.pattern`** — 문서 하단 "틀린 점 알려주기"가 가는 곳입니다.
+   지금은 부동산이지 고객센터 문의하기(`https://bdseasy.com/board`)로 되어 있습니다
