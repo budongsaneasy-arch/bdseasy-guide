@@ -46,6 +46,17 @@ export default defineConfig({
     ['link', {
       rel: 'stylesheet',
       href: 'https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap'
+    }],
+
+    // ── 방문 통계 (Cloudflare Web Analytics) ────────────────
+    //  몇 명이 어느 문서를 보는지만 셉니다.
+    //  쿠키를 쓰지 않고 개별 방문자를 추적하지 않아 동의 배너가 필요 없습니다.
+    //  아래 토큰은 비밀값이 아닙니다 — 방문자 모두에게 보이는 값입니다.
+    //  통계 보기: Cloudflare 대시보드 → Analytics → Web Analytics
+    ['script', {
+      defer: '',
+      src: 'https://static.cloudflareinsights.com/beacon.min.js',
+      'data-cf-beacon': '{"token": "f23fae77869240ce98ec874e61659c54", "spa": true}'
     }]
   ],
 
