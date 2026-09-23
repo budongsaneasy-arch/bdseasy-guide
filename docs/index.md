@@ -107,4 +107,4 @@ features:
 
 - 이메일 **help@neobsoft.co.kr**
 - 전화 **010-9699-5350**
-- [네오비TV](https://www.youtube.com/) · [네오비 카페](https://cafe.naver.com/)
+- [네오비TV](https://www.youtube.com/@THENEOB) · [네오비 카페](https://cafe.naver.com/famlab)
