@@ -29,8 +29,14 @@ export default defineConfig({
   cleanUrls: true,
   ignoreDeadLinks: true,
 
+  // 구글 검색에 사이트맵을 알려줍니다. /sitemap.xml 로 만들어집니다.
+  sitemap: { hostname: 'https://guide.bdseasy.com' },
+
   head: [
     ['meta', { name: 'theme-color', content: '#14459E' }],
+
+    // 구글 서치콘솔 소유권 확인. 지우면 확인이 풀립니다.
+    ['meta', { name: 'google-site-verification', content: '_9G_gvgfhAjWAhTw7ITftGe5qS63Wowe5c2mlfx6D9I' }],
     ['meta', { property: 'og:title', content: '부동산이지 사용 가이드' }],
     ['meta', { property: 'og:locale', content: 'ko_KR' }],
 
