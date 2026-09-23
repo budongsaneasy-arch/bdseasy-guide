@@ -125,7 +125,10 @@ export default defineConfig({
         text: '화면 설명',
         collapsed: false,
         items: [
-          { text: '아직 준비 중입니다', link: '/reference/' }
+          { text: '요금제 — 베이직과 플러스', link: '/reference/plan' },
+          { text: '공적장부 — 서류와 수수료', link: '/reference/public-records-fee' },
+          { text: '네이버 광고 — 가격과 노출순위', link: '/reference/naver-ad-price' },
+          { text: '그 밖에 준비 중인 것', link: '/reference/' }
         ]
       },
       {
