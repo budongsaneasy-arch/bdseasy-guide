@@ -36,7 +36,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 저장소 내려받기
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           # 문서마다 "최종 수정일"을 자동으로 붙이려면 전체 이력이 필요합니다.
           fetch-depth: 0
@@ -51,9 +51,9 @@ jobs:
           fi
 
       - name: Node 준비
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
-          node-version: 20
+          node-version: 24
 
       - name: 패키지 설치
         run: npm install
@@ -62,10 +62,10 @@ jobs:
         run: npm run build
 
       - name: Pages 설정
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v6
 
       - name: 결과물 업로드
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5
         with:
           path: docs/.vitepress/dist
 
@@ -78,4 +78,4 @@ jobs:
     steps:
       - name: 공개하기
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
