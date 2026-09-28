@@ -154,6 +154,7 @@
 
 ## 관련 문서
 
+- [확인설명서 작성하기 (주거용)](/howto/confirmation-form) — **계약서와 함께 쓰는 서류**
 - [아파트 매매계약서 쓰기](/howto/contract-apartment) — 공유할 계약서 만들기
 - [계약 단계별 안내문자 보내기](/howto/contract-sms) — 당사자에게 보내는 문자
 

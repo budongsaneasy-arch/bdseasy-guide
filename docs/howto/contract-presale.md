@@ -106,6 +106,7 @@ TYPE(59A, 84B 같은 것)은 분양계약서에 적힌 그대로 씁니다.
 
 ## 관련 문서
 
+- [확인설명서 작성하기 (주거용)](/howto/confirmation-form) — **계약서 다음에 이어서 쓰는 서류**
 - [아파트 매매계약서 쓰기](/howto/contract-apartment) — 공통 단계
 - [입주권 매매계약서 쓰기](/howto/contract-redevelopment) — 정비사업 물건일 때
 

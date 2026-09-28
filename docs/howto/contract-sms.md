@@ -122,6 +122,7 @@
 
 ## 관련 문서
 
+- [확인설명서 작성하기 (주거용)](/howto/confirmation-form) — **계약서와 함께 쓰는 서류**
 - [가계약 문자 보내기](/howto/pre-contract-sms) — 계약 전 단계의 문자
 - [아파트 매매계약서 쓰기](/howto/contract-apartment) — 거래당사자 등록
 - [계약서 공유해서 공동중개하기](/howto/contract-share)

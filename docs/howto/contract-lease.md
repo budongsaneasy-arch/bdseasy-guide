@@ -92,6 +92,7 @@
 
 ## 관련 문서
 
+- [확인설명서 작성하기 (주거용)](/howto/confirmation-form) — **임대 계약이면 ④ 임대차 확인사항이 열립니다**
 - [아파트 매매계약서 쓰기](/howto/contract-apartment) — 공통 단계는 여기에 있습니다
 - [임대차 만기일 관리하기](/howto/lease-expiry) — 계약이 끝나면 만기가 남습니다
 - [가계약 문자 보내기](/howto/pre-contract-sms) — 본계약 전 단계

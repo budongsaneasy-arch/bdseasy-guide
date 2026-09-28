@@ -99,6 +99,7 @@
 
 ## 관련 문서
 
+- [확인설명서 작성하기 (주거용)](/howto/confirmation-form) — **상가는 비주거용 서식으로 고르세요. 흐름은 같습니다**
 - [아파트 매매계약서 쓰기](/howto/contract-apartment) — 공통 단계
 - [전세·월세 계약서 쓰기](/howto/contract-lease) — 상가 임대차 자체를 쓸 때
 
