@@ -1,10 +1,13 @@
 import { defineConfig } from 'vitepress'
-import { execSync } from 'node:child_process'
+import { execFileSync } from 'node:child_process'
 import { fileURLToPath } from 'node:url'
 
 // 첫 화면에 쓸 "가이드 전체의 마지막 수정일"입니다.
-// 문서 폴더의 가장 최근 커밋 날짜를 빌드할 때 한 번 읽습니다.
+// 글(.md)이 마지막으로 바뀐 커밋 날짜를 빌드할 때 한 번 읽습니다.
 // 대표님이 날짜를 직접 적으실 일은 없습니다.
+//
+// ※ .md 만 봅니다. 디자인(CSS)이나 설정만 손봐도 날짜가 올라가면
+//    읽는 분이 "내용이 바뀌었나" 하고 헛걸음하시기 때문입니다.
 //
 // ※ 이력을 다 받아와야 날짜가 나옵니다. 배포 워크플로의 fetch-depth: 0 이 그 역할입니다.
 const lastDocChange = (() => {
@@ -12,7 +15,12 @@ const lastDocChange = (() => {
     // 이 파일이 있는 docs/.vitepress/ 의 한 단계 위 = docs/
     // 어디서 빌드를 돌려도 같은 폴더를 보도록 경로를 직접 잡습니다.
     const docsDir = fileURLToPath(new URL('..', import.meta.url))
-    const out = execSync('git log -1 --format=%cI -- .', { cwd: docsDir, encoding: 'utf8' }).trim()
+    // 셸을 거치지 않습니다 — 윈도우 cmd 에서는 따옴표가 그대로 넘어가 '*.md' 가 깨집니다.
+    const out = execFileSync(
+      'git',
+      ['log', '-1', '--format=%cI', '--', '*.md'],
+      { cwd: docsDir, encoding: 'utf8' }
+    ).trim()
     return out || null
   } catch {
     return null
