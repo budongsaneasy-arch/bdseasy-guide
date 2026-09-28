@@ -1,4 +1,23 @@
 import { defineConfig } from 'vitepress'
+import { execSync } from 'node:child_process'
+import { fileURLToPath } from 'node:url'
+
+// 첫 화면에 쓸 "가이드 전체의 마지막 수정일"입니다.
+// 문서 폴더의 가장 최근 커밋 날짜를 빌드할 때 한 번 읽습니다.
+// 대표님이 날짜를 직접 적으실 일은 없습니다.
+//
+// ※ 이력을 다 받아와야 날짜가 나옵니다. 배포 워크플로의 fetch-depth: 0 이 그 역할입니다.
+const lastDocChange = (() => {
+  try {
+    // 이 파일이 있는 docs/.vitepress/ 의 한 단계 위 = docs/
+    // 어디서 빌드를 돌려도 같은 폴더를 보도록 경로를 직접 잡습니다.
+    const docsDir = fileURLToPath(new URL('..', import.meta.url))
+    const out = execSync('git log -1 --format=%cI -- .', { cwd: docsDir, encoding: 'utf8' }).trim()
+    return out || null
+  } catch {
+    return null
+  }
+})()
 
 // ─────────────────────────────────────────────────────────────
 //  ★ 대표님이 손대실 곳은 딱 두 군데입니다 ★
@@ -68,6 +87,9 @@ export default defineConfig({
 
   themeConfig: {
     siteTitle: '부동산이지 사용 가이드',
+
+    // 첫 화면 맨 아래에 찍힙니다 (문서 페이지의 "최종 수정일"과 같은 출처)
+    ezLastDocChange: lastDocChange,
 
     nav: [
       { text: '시작하기', link: '/start/first-contract' },

@@ -836,3 +836,33 @@ body {
   .vp-doc h2 { break-after: avoid; }
   .vp-doc .custom-block.details { break-inside: avoid; }
 }
+
+/* ─────────────────────────────────────────────────────────────
+   첫 화면 맨 아래의 「마지막 수정일」
+   문서 페이지의 최종 수정일과 같은 출처(커밋 날짜)를 씁니다.
+   ───────────────────────────────────────────────────────────── */
+.ez-home-updated {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  margin: 0 auto;
+  padding: 48px 24px 64px;
+  max-width: 1152px;
+  border-top: 1px solid var(--vp-c-divider);
+  text-align: center;
+}
+
+.ez-home-updated__label {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--vp-c-text-2);
+}
+
+.ez-home-updated__date {
+  font-size: 13px;
+  line-height: 1.6;
+  font-weight: 500;
+  color: var(--vp-c-text-1);
+  font-variant-numeric: tabular-nums;
+}

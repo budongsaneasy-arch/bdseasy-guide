@@ -1,8 +1,8 @@
 // 기본 테마를 그대로 쓰면서 디자인만 얹습니다.
 // 색·글꼴·여백은 같은 폴더의 custom.css 에서 조정하세요.
 import DefaultTheme from 'vitepress/theme'
-import { useRoute } from 'vitepress'
-import { onMounted, watch, nextTick } from 'vue'
+import { useRoute, useData } from 'vitepress'
+import { h, onMounted, watch, nextTick } from 'vue'
 import './custom.css'
 
 // ─────────────────────────────────────────────────────────────
@@ -40,8 +40,46 @@ function markSteps() {
   })
 }
 
+// ────────────────────────────────────────────────────────────
+//  첫 화면에도 「마지막 수정일」을 붙입니다.
+//
+//  문서 페이지에는 VitePress가 자동으로 붙여 주는데,
+//  첫 화면(layout: home)에는 그 자리가 없어 혼자 비어 있었습니다.
+//
+//  날짜는 config.mts 가 커밋에서 읽어 옵니다.
+//  → 대표님이 날짜를 직접 적으실 일은 없습니다. 문서를 고치면 따라 바뀝니다.
+// ────────────────────────────────────────────────────────────
+
+function HomeUpdated() {
+  const { theme, frontmatter } = useData()
+
+  // 첫 화면에만 붙입니다. 문서 페이지에는 VitePress가 이미 붙여 줍니다.
+  if (frontmatter.value.layout !== 'home') return null
+
+  const iso = theme.value.ezLastDocChange
+  if (!iso) return null
+
+  const d = new Date(iso)
+  if (Number.isNaN(d.getTime())) return null
+
+  const when = d.getFullYear() + '년 ' + (d.getMonth() + 1) + '월 ' + d.getDate() + '일'
+
+  return h('div', { class: 'ez-home-updated' }, [
+    h('span', { class: 'ez-home-updated__label' }, '이 가이드는 제품이 바뀔 때마다 고칩니다'),
+    h('span', { class: 'ez-home-updated__date' }, [
+      '마지막 수정 ',
+      h('time', { datetime: d.toISOString() }, when)
+    ])
+  ])
+}
+
 export default {
   extends: DefaultTheme,
+  Layout() {
+    return h(DefaultTheme.Layout, null, {
+      'layout-bottom': () => h(HomeUpdated)
+    })
+  },
   setup() {
     const route = useRoute()
     onMounted(() => nextTick(markSteps))
