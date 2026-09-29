@@ -146,6 +146,7 @@ export default defineConfig({
           { text: '고객 등록하고 관리하기', link: '/howto/customer' },
           { text: '고객 한 번에 불러오기', link: '/howto/customer-import' },
           { text: '일정 관리하기', link: '/howto/calendar' },
+          { text: '부동산이지 앱 설치하고 쓰기', link: '/howto/app' },
           { text: '직원 등록하고 배분비율 정하기', link: '/howto/staff' },
           { text: '매출 관리하기', link: '/howto/sales' },
           { text: '등기 열람 포인트 충전하기', link: '/howto/points' }
