@@ -134,6 +134,7 @@ export default defineConfig({
           { text: '가계약 문자 보내기', link: '/howto/pre-contract-sms' },
           { text: '아파트 매매계약서 쓰기', link: '/howto/contract-apartment' },
           { text: '확인설명서 작성하기 (주거용)', link: '/howto/confirmation-form' },
+          { text: '계약에 필요한 서류 챙기기', link: '/howto/contract-forms' },
           { text: '전세·월세 계약서 쓰기', link: '/howto/contract-lease' },
           { text: '분양권 매매계약서 쓰기', link: '/howto/contract-presale' },
           { text: '입주권 매매계약서 쓰기', link: '/howto/contract-redevelopment' },
