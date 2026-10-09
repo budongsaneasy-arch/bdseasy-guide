@@ -126,6 +126,7 @@ export default defineConfig({
         items: [
           { text: '공적장부 한 번에 떼기', link: '/howto/public-records' },
           { text: '매물 접수하기', link: '/howto/property-register' },
+          { text: '매물 사진 한 곳에서 관리하기', link: '/howto/photo-gallery' },
           { text: '신축 단지 원장 신청하기 (임시원장)', link: '/howto/temp-ledger' },
           { text: '네이버 매물 보고 바로 접수하기', link: '/howto/n-monitoring' },
           { text: '네이버에 매물 광고하기', link: '/howto/naver-ad' },
