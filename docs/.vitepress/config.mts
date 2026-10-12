@@ -223,7 +223,7 @@ export default defineConfig({
     },
 
     footer: {
-      message: '문의 help@neobsoft.co.kr · 010-9699-5350',
+      message: '문의 help@neobsoft.co.kr · 010-4847-5350',
       copyright: '네오비소프트 · 부동산이지'
     }
   }

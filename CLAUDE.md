@@ -508,4 +508,4 @@ git config core.hooksPath .githooks
 ## 문의처 (문서 안에서 안내할 때)
 
 - help@neobsoft.co.kr
-- 010-9699-5350
+- 010-4847-5350
