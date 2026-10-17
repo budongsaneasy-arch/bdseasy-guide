@@ -149,6 +149,7 @@ export default defineConfig({
           { text: '고객 한 번에 불러오기', link: '/howto/customer-import' },
           { text: '일정 관리하기', link: '/howto/calendar' },
           { text: '부동산이지 앱 설치하고 쓰기', link: '/howto/app' },
+          { text: '통화 녹음을 AI로 요약하기', link: '/howto/call-summary' },
           { text: '직원 등록하고 배분비율 정하기', link: '/howto/staff' },
           { text: '매출 관리하기', link: '/howto/sales' },
           { text: '등기 열람 포인트 충전하기', link: '/howto/points' }
@@ -158,7 +159,7 @@ export default defineConfig({
         text: '화면 설명',
         collapsed: false,
         items: [
-          { text: '요금제 — 베이직과 플러스', link: '/reference/plan' },
+          { text: '요금제 — 베이직·플러스·프로', link: '/reference/plan' },
           { text: '공적장부 — 서류와 수수료', link: '/reference/public-records-fee' },
           { text: '네이버 광고 — 가격과 노출순위', link: '/reference/naver-ad-price' },
           { text: '그 밖에 준비 중인 것', link: '/reference/' }

@@ -72,4 +72,4 @@
 
 - [공적장부 한 번에 떼기](/howto/public-records) — 실제로 떼는 순서
 - [등기 열람 포인트 충전하기](/howto/points) — 포인트 충전
-- [요금제 — 베이직과 플러스](/reference/plan) — 하루 한도 차이
+- [요금제 비교](/reference/plan) — 하루 한도 차이
