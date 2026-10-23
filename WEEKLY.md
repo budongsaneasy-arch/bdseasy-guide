@@ -393,6 +393,7 @@ danger 상자로 적어 두었습니다. 고쳐지면 그 블록을 지웁니다
 | 2026-10-06 | 회신 7건 | `n-monitoring.md` · `naver-ad.md` · `contract-forms.md` · `index.md` 수정 | 16 보강 | `a70437b`~ |
 | 2026-10-08 | 11 | `n-monitoring.md` · `confirmation-form.md` · `calendar.md` · `property-register.md` 수정 + CLAUDE.md 메뉴 표 | 01 보강 | `e779435`~ |
 | 2026-10-16 | 12 | **프로 요금제 반영** — `plan.md` 3단 개편 · `call-summary.md` 신설 · `confirmation-form.md` 8단계(AI 점검) · `app`/`ez-hub`/`naver-ad` 수정 + CLAUDE.md | 01 보강 | `1f68b52`~ |
+| 2026-10-23 | 34 | `public-records` 저장 번호 확인창 · `contract-apartment` 기타(직접 입력) · `sales` 입금자 · `property-register`·`request` My노트 · `confirmation-form` 참고 간단 표시 · `points` 쿠폰 만료일 · AI 권리분석 핵심요약/쉬운 점검표 한 줄 | 02 보강 | `3355a3d`~ |
 
 **2026-10-02 소스로 갈린 것** — 항목은 많았지만 **문서를 고칠 것은 한 건**이었습니다.
 
