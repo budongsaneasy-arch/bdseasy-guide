@@ -162,7 +162,7 @@ export default defineConfig({
           { text: '요금제 — 베이직·플러스·프로', link: '/reference/plan' },
           { text: '공적장부 — 서류와 수수료', link: '/reference/public-records-fee' },
           { text: '네이버 광고 — 가격과 노출순위', link: '/reference/naver-ad-price' },
-          { text: '그 밖에 준비 중인 것', link: '/reference/' }
+          { text: '화면 설명 보는 법', link: '/reference/' }
         ]
       },
       {
