@@ -226,5 +226,6 @@
 
 - [아파트 매매계약서 쓰기](/howto/contract-apartment) — 계약서에서 바로 서류 떼기
 - [매물 접수하기](/howto/property-register) — 주소가 정확해야 서류가 나옵니다
+- [등기 변동 알림 받기](/howto/registry-alarm) — 매번 떼지 않고 움직임만 지켜보기
 
 <!-- 네오비TV 영상이 있으면 여기에 넣으세요 -->
