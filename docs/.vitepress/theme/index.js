@@ -127,9 +127,7 @@ function sendToNaver() {
   if (!window.wcs || typeof window.wcs_do !== 'function') return
 
   naverSentPath = path
-  window._nasa = window._nasa || {}
-  window.wcs.inflow()
-  window.wcs_do(window._nasa)
+  window.wcs_do()
 }
 
 // 구글·네이버 스크립트가 늦게 올라올 때가 있습니다.

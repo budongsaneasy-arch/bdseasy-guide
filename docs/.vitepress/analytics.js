@@ -16,9 +16,9 @@ export const GA4_ID = ''
 
 // 네이버 애널리틱스 발급ID.
 //  받는 곳 : analytics.naver.com → 사이트 등록 → 발급ID
-export const NAVER_ANALYTICS_ID = ''
+export const NAVER_ANALYTICS_ID = '1bbf773c4998dc0'
 
 // 네이버 서치어드바이저 소유확인 값. meta 태그의 content 부분만 넣습니다.
 //  받는 곳 : searchadvisor.naver.com → 웹마스터도구 → 사이트 등록
 //           → 소유확인 방법에서 'HTML 태그' 를 고르면 나오는 content 값
-export const NAVER_SITE_VERIFICATION = ''
+export const NAVER_SITE_VERIFICATION = '50103b1189b7fb945321b04c9dc28d04faf22c0f'

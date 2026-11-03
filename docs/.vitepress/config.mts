@@ -81,15 +81,17 @@ if (GA4_ID) {
 }
 
 // 네이버 애널리틱스
-//  wcslog.js 는 async 를 붙이지 않습니다. 화면이 그려지기 전에 먼저 올라와 있어야
-//  테마가 조회를 보낼 수 있습니다 (네이버가 안내하는 방식 그대로입니다).
+//  네이버가 주는 설치 스니펫 그대로입니다. 주소와 호출 방식을 임의로 바꾸지 마세요.
+//  (검색광고 전환추적 쪽 안내문에는 inflow() 가 같이 나오는데, 애널리틱스는 쓰지 않습니다)
+//
+//  wcslog.js 에는 async 를 붙이지 않습니다. 화면이 그려지기 전에 먼저 올라와 있어야
+//  테마가 조회를 보낼 수 있습니다.
 if (NAVER_ANALYTICS_ID) {
   analyticsHead.push(
-    ['script', { src: 'https://wcs.naver.net/wcslog.js' }],
+    ['script', { src: 'https://wcs.pstatic.net/wcslog.js' }],
     ['script', {}, [
       'window.wcs_add = window.wcs_add || {};',
-      `window.wcs_add['wa'] = '${NAVER_ANALYTICS_ID}';`,
-      'window._nasa = window._nasa || {};'
+      `window.wcs_add['wa'] = '${NAVER_ANALYTICS_ID}';`
     ].join('\n')]
   )
 }
