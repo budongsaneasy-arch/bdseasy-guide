@@ -12,7 +12,7 @@
 
 // 구글 애널리틱스 4 측정 ID. 'G-' 로 시작합니다.
 //  받는 곳 : analytics.google.com → 관리 → 데이터 스트림 → 웹 → 측정 ID
-export const GA4_ID = ''
+export const GA4_ID = 'G-1ESME2TR6X'
 
 // 네이버 애널리틱스 발급ID.
 //  받는 곳 : analytics.naver.com → 사이트 등록 → 발급ID
