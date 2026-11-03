@@ -3,6 +3,7 @@
 import DefaultTheme from 'vitepress/theme'
 import { useRoute, useData } from 'vitepress'
 import { h, onMounted, watch, nextTick } from 'vue'
+import { GA4_ID, NAVER_ANALYTICS_ID } from '../analytics.js'
 import './custom.css'
 
 // ─────────────────────────────────────────────────────────────
@@ -73,8 +74,87 @@ function HomeUpdated() {
   ])
 }
 
+// ────────────────────────────────────────────────────────────
+//  방문자 분석 — 넘어간 화면을 한 번씩 알려 줍니다.
+//
+//  이 사이트는 문서를 넘길 때 새로고침을 하지 않습니다. 화면만 갈아 끼웁니다.
+//  그래서 가만히 두면 구글·네이버는 처음 들어온 화면 하나만 보고,
+//  그 사람이 다음에 어느 문서를 읽었는지는 모릅니다.
+//  아래 코드가 화면이 바뀔 때마다 "지금 이 주소를 보고 있습니다" 하고 알립니다.
+//
+//  ★ 측정 ID 가 비어 있으면(= 아직 안 받았으면) 아무것도 보내지 않습니다.
+//    ID 는 docs/.vitepress/analytics.js 에서 고칩니다.
+//
+//  ※ 같은 주소는 두 번 세지 않습니다. 보낸 주소를 기억해 두고 비교합니다.
+//    들어온 첫 화면에서 VitePress 가 화면 전환을 한 번 더 알려 주기 때문에,
+//    이 비교가 없으면 첫 화면이 두 번 집계됩니다.
+//  ※ 본문 안의 제목 링크(#)를 눌러 같은 문서 안에서 움직이는 것은
+//    새 화면이 아니므로 세지 않습니다.
+// ────────────────────────────────────────────────────────────
+
+// 구글·네이버에 각각 마지막으로 보낸 주소입니다.
+// ★ 실제로 보낸 뒤에만 적습니다. 보내지 못했는데 적어 두면
+//   "이미 보냈다"고 착각해서 그 화면이 통째로 빠집니다.
+let ga4SentPath = null
+let naverSentPath = null
+
+// 주소표시줄의 경로입니다 (예: /howto/naver-ad).
+// #뒤는 보지 않습니다 — 본문 제목 링크를 눌러 움직인 것은 새 화면이 아닙니다.
+function currentPath() {
+  return window.location.pathname + window.location.search
+}
+
+function sendToGa4() {
+  if (!GA4_ID) return
+  const path = currentPath()
+  if (path === ga4SentPath) return
+  // 구글 스크립트가 아직 안 올라왔으면 그냥 돌아갑니다. 보낸 것으로 적지 않으므로
+  // 아래 재시도에서 다시 보냅니다.
+  if (typeof window.gtag !== 'function') return
+
+  ga4SentPath = path
+  window.gtag('event', 'page_view', {
+    page_path: path,
+    page_location: window.location.href,
+    page_title: document.title
+  })
+}
+
+function sendToNaver() {
+  if (!NAVER_ANALYTICS_ID) return
+  const path = currentPath()
+  if (path === naverSentPath) return
+  if (!window.wcs || typeof window.wcs_do !== 'function') return
+
+  naverSentPath = path
+  window._nasa = window._nasa || {}
+  window.wcs.inflow()
+  window.wcs_do(window._nasa)
+}
+
+// 구글·네이버 스크립트가 늦게 올라올 때가 있습니다.
+// 아직이면 잠깐 기다렸다가 다시 넣어 봅니다 (0.25초 간격으로 최대 5초).
+function sendPageView(retriesLeft = 20) {
+  if (typeof window === 'undefined') return
+
+  const waiting =
+    (GA4_ID && typeof window.gtag !== 'function') ||
+    (NAVER_ANALYTICS_ID && typeof window.wcs_do !== 'function')
+
+  sendToGa4()
+  sendToNaver()
+
+  if (waiting && retriesLeft > 0) {
+    setTimeout(() => sendPageView(retriesLeft - 1), 250)
+  }
+}
+
 export default {
   extends: DefaultTheme,
+  enhanceApp({ router }) {
+    // 문서를 넘길 때마다 불립니다. 제목이 바뀐 뒤에 보내려고 한 틱 기다립니다.
+    router.onAfterRouteChange = () => nextTick(sendPageView)
+  },
   Layout() {
     return h(DefaultTheme.Layout, null, {
       'layout-bottom': () => h(HomeUpdated)
@@ -83,6 +163,11 @@ export default {
   setup() {
     const route = useRoute()
     onMounted(() => nextTick(markSteps))
+
+    // 들어온 첫 화면용입니다. 위 onAfterRouteChange 가 먼저 보냈으면
+    // 같은 주소라서 그냥 넘어갑니다 (두 번 세지 않습니다).
+    onMounted(() => nextTick(sendPageView))
+
     watch(
       () => route.path,
       () => nextTick(markSteps)

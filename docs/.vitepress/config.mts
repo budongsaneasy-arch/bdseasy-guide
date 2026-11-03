@@ -1,6 +1,7 @@
-import { defineConfig } from 'vitepress'
+import { defineConfig, type HeadConfig } from 'vitepress'
 import { execFileSync } from 'node:child_process'
 import { fileURLToPath } from 'node:url'
+import { GA4_ID, NAVER_ANALYTICS_ID, NAVER_SITE_VERIFICATION } from './analytics.js'
 
 // 첫 화면에 쓸 "가이드 전체의 마지막 수정일"입니다.
 // 글(.md)이 마지막으로 바뀐 커밋 날짜를 빌드할 때 한 번 읽습니다.
@@ -42,6 +43,56 @@ const lastDocChange = (() => {
 // ─────────────────────────────────────────────────────────────
 
 const base = '/'
+
+// ─────────────────────────────────────────────────────────────
+//  방문자 분석 — 누가 어느 문서를 보는지 셉니다
+//
+//  ★ 측정 ID 는 이 파일이 아니라 docs/.vitepress/analytics.js 에서 고칩니다.
+//    여기는 그 ID 로 무엇을 불러올지만 정해 둔 곳입니다.
+//
+//  ★ ID 가 비어 있으면 그 줄을 아예 건너뜁니다.
+//    스크립트가 안 들어가므로 쿠키도 생기지 않습니다.
+//
+//  ※ 화면을 넘길 때 조회를 한 번씩 보내는 일은 여기서 하지 않습니다.
+//    docs/.vitepress/theme/index.js 가 맡고 있습니다. 두 번 세지 않으려고
+//    아래에서는 '처음 한 번 자동으로 보내기'를 꺼 두었습니다.
+// ─────────────────────────────────────────────────────────────
+const analyticsHead: HeadConfig[] = []
+
+// 네이버 서치어드바이저 소유권 확인. 구글 서치콘솔 태그와 같은 역할입니다.
+//  값 받는 곳 : searchadvisor.naver.com → 웹마스터도구 → 사이트 등록
+if (NAVER_SITE_VERIFICATION) {
+  analyticsHead.push(['meta', { name: 'naver-site-verification', content: NAVER_SITE_VERIFICATION }])
+}
+
+// 구글 애널리틱스 4
+//  send_page_view: false — 들어온 첫 화면을 구글이 알아서 세지 않게 막습니다.
+//  대신 테마가 화면마다 한 번씩 직접 보냅니다. 안 막으면 첫 화면만 두 번 세집니다.
+if (GA4_ID) {
+  analyticsHead.push(
+    ['script', { async: '', src: `https://www.googletagmanager.com/gtag/js?id=${GA4_ID}` }],
+    ['script', {}, [
+      'window.dataLayer = window.dataLayer || [];',
+      'function gtag(){dataLayer.push(arguments);}',
+      "gtag('js', new Date());",
+      `gtag('config', '${GA4_ID}', { send_page_view: false });`
+    ].join('\n')]
+  )
+}
+
+// 네이버 애널리틱스
+//  wcslog.js 는 async 를 붙이지 않습니다. 화면이 그려지기 전에 먼저 올라와 있어야
+//  테마가 조회를 보낼 수 있습니다 (네이버가 안내하는 방식 그대로입니다).
+if (NAVER_ANALYTICS_ID) {
+  analyticsHead.push(
+    ['script', { src: 'https://wcs.naver.net/wcslog.js' }],
+    ['script', {}, [
+      'window.wcs_add = window.wcs_add || {};',
+      `window.wcs_add['wa'] = '${NAVER_ANALYTICS_ID}';`,
+      'window._nasa = window._nasa || {};'
+    ].join('\n')]
+  )
+}
 
 export default defineConfig({
   base,
@@ -90,7 +141,16 @@ export default defineConfig({
       defer: '',
       src: 'https://static.cloudflareinsights.com/beacon.min.js',
       'data-cf-beacon': '{"token": "f23fae77869240ce98ec874e61659c54", "spa": true}'
-    }]
+    }],
+
+    // ── 방문자 분석 (구글 애널리틱스 · 네이버 애널리틱스) ──────
+    //  바로 위 Cloudflare 와 겹치는 것이 아니라 보는 것이 다릅니다.
+    //  Cloudflare = 쿠키 없이 방문 수만. 아래 = 어떤 검색어로 들어와
+    //  어느 문서까지 읽었는지. 자세히 보려면 쿠키를 씁니다.
+    //
+    //  측정 ID 는 docs/.vitepress/analytics.js 에서 고칩니다.
+    //  비어 있으면 아래 줄은 아무것도 들어가지 않습니다.
+    ...analyticsHead
   ],
 
   themeConfig: {
