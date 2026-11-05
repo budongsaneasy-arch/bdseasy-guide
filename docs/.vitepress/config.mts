@@ -44,6 +44,10 @@ const lastDocChange = (() => {
 
 const base = '/'
 
+// 사이트 이름과 한 줄 설명. 제목·설명문·공유 미리보기가 모두 이 둘을 씁니다.
+const SITE_NAME = '부동산이지 사용 가이드'
+const SITE_DESCRIPTION = '공인중개사를 위한 부동산이지 사용법. 계약서·확인설명서·공적장부·네이버 광고.'
+
 // ─────────────────────────────────────────────────────────────
 //  방문자 분석 — 누가 어느 문서를 보는지 셉니다
 //
@@ -99,8 +103,8 @@ if (NAVER_ANALYTICS_ID) {
 export default defineConfig({
   base,
   lang: 'ko-KR',
-  title: '부동산이지 사용 가이드',
-  description: '공인중개사를 위한 부동산이지 사용법. 계약서·확인설명서·공적장부·네이버 광고.',
+  title: SITE_NAME,
+  description: SITE_DESCRIPTION,
 
   // 각 문서 아래에 "최종 수정일"이 자동으로 붙습니다.
   // 대표님이 날짜를 직접 적을 필요가 없습니다 — 저장한 날짜가 그대로 들어갑니다.
@@ -112,13 +116,42 @@ export default defineConfig({
   // 구글 검색에 사이트맵을 알려줍니다. /sitemap.xml 로 만들어집니다.
   sitemap: { hostname: 'https://guide.bdseasy.com' },
 
+  // ── 링크를 공유할 때 보이는 제목·설명문 ─────────────────────
+  //  카톡·네이버 카페·블로그에 주소를 붙여 넣으면 이 값이 미리보기로 뜹니다.
+  //
+  //  ★ 문서마다 달라야 합니다. 예전에는 설정에 한 줄로 박아 두어서
+  //    어느 문서를 공유해도 「부동산이지 사용 가이드」 하나로만 보였습니다.
+  //    이제 빌드할 때 문서 제목(맨 위 `# 제목`)으로 채웁니다.
+  //
+  //  ※ 설명문은 문서 맨 위 frontmatter 의 `description:` 을 씁니다.
+  //    적지 않으면 사이트 설명으로 대신합니다. 문서마다 한 줄씩 적어 두면
+  //    검색 결과와 공유 미리보기가 그만큼 또렷해집니다.
+  // ────────────────────────────────────────────────────────────
+  transformPageData(pageData) {
+    const isHome = pageData.frontmatter.layout === 'home'
+    const title = isHome || !pageData.title
+      ? SITE_NAME
+      : `${pageData.title} | ${SITE_NAME}`
+    const description =
+      pageData.frontmatter.description || pageData.description || SITE_DESCRIPTION
+
+    pageData.frontmatter.head ??= []
+    pageData.frontmatter.head.push(
+      ['meta', { property: 'og:title', content: title }],
+      ['meta', { property: 'og:description', content: description }]
+    )
+  },
+
   head: [
     ['meta', { name: 'theme-color', content: '#14459E' }],
 
     // 구글 서치콘솔 소유권 확인. 지우면 확인이 풀립니다.
     ['meta', { name: 'google-site-verification', content: '_9G_gvgfhAjWAhTw7ITftGe5qS63Wowe5c2mlfx6D9I' }],
-    ['meta', { property: 'og:title', content: '부동산이지 사용 가이드' }],
+    // og:title 과 og:description 은 여기 두지 않습니다.
+    // 문서마다 달라야 해서 아래 transformPageData 가 빌드할 때 채웁니다.
     ['meta', { property: 'og:locale', content: 'ko_KR' }],
+    ['meta', { property: 'og:type', content: 'website' }],
+    ['meta', { property: 'og:site_name', content: SITE_NAME }],
 
     // ── 글꼴 ──────────────────────────────────────────────
     //  본문은 Pretendard(한글 화면용), 제목·경로는 IBM Plex.
