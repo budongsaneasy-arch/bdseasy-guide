@@ -135,6 +135,6 @@ description: "부동산이지에서 검색되지 않는 신축 단지의 원장�
 
 - [왜 대장이 먼저인가](/concept/why-records-first) — 원장이 대장을 기준으로 만들어지는 이유
 - [매물 접수하기](/howto/property-register) — 원장을 찾았으면 매물부터
-- [공적장부 한 번에 떼기](/howto/public-records) — 대장이 생성된 뒤 서류 떼기
+- [공적장부 한 번에 발급하기](/howto/public-records) — 대장이 생성된 뒤 서류 발급하기
 
 <!-- 네오비TV 영상이 있으면 여기에 넣으세요 -->

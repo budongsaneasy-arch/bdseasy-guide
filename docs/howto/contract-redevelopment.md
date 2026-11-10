@@ -132,6 +132,6 @@ description: "재개발·재건축 조합원 입주권 매매계약서입니다.
 - [확인설명서 작성하기 (주거용)](/howto/confirmation-form) — **계약서 다음에 이어서 쓰는 서류**
 - [아파트 매매계약서 쓰기](/howto/contract-apartment) — 공통 단계
 - [분양권 매매계약서 쓰기](/howto/contract-presale) — 조합원이 아닌 일반 분양권
-- [공적장부 한 번에 떼기](/howto/public-records) — 종전자산 확인
+- [공적장부 한 번에 발급하기](/howto/public-records) — 종전자산 확인
 
 <!-- 네오비TV 영상이 있으면 여기에 넣으세요 -->

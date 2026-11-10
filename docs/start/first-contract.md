@@ -105,7 +105,7 @@ description: "가입하고 매물을 하나 넣고 계약서를 한 장 뽑는 �
 
 ## 다음은 어디로
 
-- [공적장부 한 번에 떼기](/howto/public-records) — **가장 먼저 해보시길 권합니다**
+- [공적장부 한 번에 발급하기](/howto/public-records) — **가장 먼저 해보시길 권합니다**
 - [매물 접수하기](/howto/property-register) — 매물이 모든 것의 원본입니다
 - [가계약 문자 보내기](/howto/pre-contract-sms) — 실제 계약은 여기서 시작됩니다
 - [아파트 매매계약서 쓰기](/howto/contract-apartment) — 본계약을 쓰실 때

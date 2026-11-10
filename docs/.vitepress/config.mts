@@ -219,7 +219,7 @@ export default defineConfig({
         text: '업무별 방법',
         collapsed: false,
         items: [
-          { text: '공적장부 한 번에 떼기', link: '/howto/public-records' },
+          { text: '공적장부 한 번에 발급하기', link: '/howto/public-records' },
           { text: '등기 변동 알림 받기', link: '/howto/registry-alarm' },
           { text: '매물 접수하기', link: '/howto/property-register' },
           { text: '매물 사진 한 곳에서 관리하기', link: '/howto/photo-gallery' },
